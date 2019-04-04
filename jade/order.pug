@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles.css')
+  body
+    .container-fluid
+      form.addressForm
+        .input-group
+          .input-group-prepend
+            i.input-group-text.material-icons  person 
+          input.form-control(type='text', placeholder='Name')
+        .input-group
+          .input-group-prepend
+            i.input-group-text.material-icons  place 
+          input.form-control(type='text', placeholder='Address')
+        .input-group
+          .input-group-prepend
+            i.input-group-text.material-icons  phone 
+          input.form-control(type='text', placeholder='Phone number')
+        .input-group
+          .input-group-prepend
+            i.input-group-text.material-icons  create 
+          input.form-control(type='text', placeholder='Note')
+        // RADIO
+        #payment-type.container
+          p  Payment type 
+          .custom-control-inline.custom-control.custom-radio
+            label.custom-control-label
+              | Card
+              input.custom-control-input(type='radio', name='pay-card')
+            .custom-control-inline.custom-control.custom-radio
+              label.custom-control-label
+                | Cash
+                input.custom-control-input(type='radio', name='pay-cash')
+          // RADIO
+          .buttContainer
+            button#close.bottomButtons(href='menu.html')
+              i.material-icons  close 
+            button#submit.bottomButtons(form='addressForm', type='submit')
+              i.material-icons  check 

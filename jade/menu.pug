@@ -1,0 +1,73 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+
+    link(rel='stylesheet', href='styles.css')
+
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
+  body
+
+    button.mo-button.btn(data-toggle="collapse", data-target="#mo-food" type="button")
+      | Monday
+
+    .container-fluid.collapse.show#mo-food
+      .row
+        .container-fluid.foodTile
+          .row
+            .col-2.butt-container
+              button.btn.add-food(type='button')
+                i.material-icons  add 
+              button.btn.remove-food(type='button')
+                i.material-icons  remove 
+            .col-7.food-info
+              p.foodname  Tomato soup 
+              p.foodprice  30 Kč 
+              p.fooddesc  good food. very good food. recommend. 
+            .col-3.img-container
+              img(src='img/food/tomato.jpg')
+      .row
+        .container-fluid.foodTile
+          .row
+            .col-2.butt-container
+              button.btn.add-food(type='button')
+                i.material-icons  add 
+              button.btn.remove-food(type='button')
+                i.material-icons  remove 
+            .col-7.food-info
+              p.foodname  Cauliflower thing 
+              p.foodprice  60 Kč 
+              p.fooddesc  good food. very good food. recommend. 
+            .col-3.img-container
+              img(src='img/food/caulipotato.jpg')
+
+      .row
+        .container-fluid.foodTile
+          .row
+            .col-2.butt-container
+              button.btn.add-food(type='button')
+                i.material-icons  add 
+              button.btn.remove-food(type='button')
+                i.material-icons  remove 
+            .col-7.food-info
+              p.foodname  Chicken Tikka 
+              p.foodprice  140 Kč 
+              p.fooddesc  good food. very good food. recommend. 
+            .col-3.img-container
+              img(src='img/food/chicktikka.jpg')
+
+.container
+  h2 Simple Collapsible
+  p Click on the button to toggle between showing and hiding content.
+  button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#demo') Simple collapsible
+  #demo.collapse
+    | Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    | sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

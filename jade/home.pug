@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles.css')
+  body
+    .container-fluid
+      .row
+        .col-6
+          a(href='menu.html')
+            .btn.btn-info.btn-block.tile
+              i.material-icons  restaurant_menu 
+              p.buttonDesc  Menu 
+        .col-6
+          a(href='news.html')
+            .btn.btn-info.btn-block.tile
+              i.material-icons  date_range 
+              p.buttonDesc  News 
+      .row
+        .col-6
+          a(href='order.html')
+            .btn.btn-info.btn-block.tile
+              i.material-icons  shopping_cart 
+              p.buttonDesc  Order 
+        .col-6
+          a(href='contacts.html')
+            .btn.btn-info.btn-block.tile
+              i.material-icons  phone 
+              p.buttonDesc  Contacts 
