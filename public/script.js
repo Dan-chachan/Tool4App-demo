@@ -1,15 +1,21 @@
 
 
-function addFood() {
-    var box = document.getElementById("amountBox")
-    var oldnum = box.innerHTML;
-    var newnum = parseInt(oldnum) + 1
-    box.innerHTML = newnum;
-}
+var food_amounts = document.querySelectorAll('.amountBox')
+food_amounts.forEach(function(amountElem) {
 
-function removeFood() {
-    var box = document.getElementById("amountBox")
-    var oldnum = box.innerHTML;
-    var newnum = parseInt(oldnum) - 1
-    box.innerHTML = (newnum > 0) ? newnum : 0;
-}
+    var btnMore = amountElem.previousSibling
+    var btnLess = amountElem.nextSibling
+    
+    btnMore.addEventListener("click", function() {
+        var oldnum = amountElem.innerHTML;
+        var newnum = parseInt(oldnum) + 1
+        amountElem.innerHTML = newnum;
+    }) 
+
+    btnLess.addEventListener("click", function() {
+        var oldnum = amountElem.innerHTML;
+        var newnum = parseInt(oldnum) - 1
+        amountElem.innerHTML = (newnum > 0) ? newnum : 0;
+    }) 
+
+})
