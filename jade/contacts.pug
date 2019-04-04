@@ -21,25 +21,26 @@ html(lang='en')
       <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
     .container-fluid
       .row
-        img#logo(src='img/logo.png')
+        .col.logo
+          img#logo(src='img/logo.png')
       .row
         .col-6
           #info.container
             .row
-              .col-2
+              .col-2.addressIcon
                 i.material-icons  place 
-              .col-10
+              .col-10.address
                 p  Some Street 0 
                 p  Some City 000 01 
             .row
-              .col-2
+              .col-2.webIcon
                 i.material-icons  language 
-              .col-10
+              .col-10.website
                 a.link(href='http://skeleton.cz')  skeleton.cz 
             .row
-              .col-2
+              .col-2.phoneIcon
                 i.material-icons  phone 
-              .col-10
+              .col-10.phoneNum
                 p  010 001 000 
         .col-6
           #map.container

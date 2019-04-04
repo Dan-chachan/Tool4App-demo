@@ -13,6 +13,8 @@ html(lang='en')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 
+    script(src='script.js')
+
   body
 
     button.mo-button.btn(data-toggle="collapse", data-target="#mo-food" type="button")
@@ -23,10 +25,12 @@ html(lang='en')
         .container-fluid.foodTile
           .row
             .col-2.butt-container.btn-group-vertical
-              button.btn.add-food(type='button')
+              button.btn.add-food(type='button', onclick="addFood()")
                 i.material-icons  add 
               .line
-              button.btn.remove-food(type='button')
+              #amountBox 0
+
+              button.btn.remove-food(type='button', onclick="removeFood()")
                 i.material-icons  remove 
             .col-7.food-info
               p.foodname  Tomato soup 

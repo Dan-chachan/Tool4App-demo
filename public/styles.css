@@ -53,8 +53,10 @@ body {
     position: relative;
 }
 
+
 .butt-container {
     height: var(--intile-ht);
+    position: relative;
 }
 
 .line {
@@ -63,8 +65,29 @@ body {
     width: 100%;
 }
 
+#amountBox {
+    --size: 5vw;
+    height: var(--size);
+    width: var(--size);
+    background-color: var(--primary-back);
+    border-radius: 999px;
+
+    z-index: 999;
+    position: absolute;
+
+    text-align: center;
+    line-height: 5vw;
+    vertical-align: middle;
+
+    top: calc(50% - var(--size) / 2);
+    left: calc(50% - var(--size) / 2);
+
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
 .add-food i, .remove-food i {
-    font-size: 1em;
+    font-size: 4vw;
 
     position: absolute;
     left: calc(50% - 0.5em);
@@ -124,11 +147,11 @@ body {
 
 /*   ORDER   */
 
-.addressForm {
-    position: absolute;
-    top: 20%;
-    left: 10%;
+.main {
+    background-color: var(--primary-back);
+    margin: 1em;
 }
+
 
 .form-control {
     font-size: 4vw;
@@ -322,7 +345,15 @@ input[type=radio] {
 
 /*  CONTACTS  */
 
+.logo {
+    position: relative;
+}
+
 #logo {
+    position: absolute;
+    left: calc(50% - 35vw / 2);
+    top: 1vh;
+    width: 35vw;
 
 }
 
@@ -336,6 +367,7 @@ input[type=radio] {
 }
 
 #info {
+    margin-top: 10vh;
     padding: var(--pad);
 }
 
