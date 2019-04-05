@@ -22,6 +22,8 @@
     --dark: #1c1c24;
     --darkish: #343342;
     font-family: "Open Sans";
+
+    font-size: 32px;
 }
 
 
@@ -30,6 +32,7 @@ body {
     color: var(--primary-back-text);
     margin: 0;
     box-sizing: border-box;
+    
     
 }
 
@@ -66,7 +69,7 @@ body {
 }
 
 .daybtn i {
-    margin: 0.5em;
+    margin: 0.5rem;
     right: 0;
 }
 
@@ -77,8 +80,8 @@ body {
     border-radius: 5px;
     background-color: var(--primary-back);
     
-    margin: 0.7em;
-    margin-bottom: 0.1em;
+    margin: 0.7rem;
+    margin-bottom: 0.1rem;
     padding: calc(var(--pad)*2);
     
     position: relative;
