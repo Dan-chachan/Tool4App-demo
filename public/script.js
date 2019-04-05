@@ -17,5 +17,4 @@ food_amounts.forEach(function(amountElem) {
         var newnum = parseInt(oldnum) - 1
         amountElem.innerHTML = (newnum > 0) ? newnum : 0;
     }) 
-
 })

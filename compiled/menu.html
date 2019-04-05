@@ -1,4 +1,17 @@
-:root {
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+			<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&amp;subset=latin-ext" rel="stylesheet" />
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="styles.css" />
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		
+			<style>
+				:root {
     --accent-col: #316f07;
     --primary-col: #7DEC1F;
     --primary-dark: #56A315;
@@ -413,3 +426,132 @@ input[type=radio] {
 }
 
 /*  CONTACTS  */
+			</style>
+		</head>
+		<body>
+			<div class="container-fluid">
+				<button class="mo-button daybtn" data-toggle="collapse" data-target="#mo-food">
+					<p>Monday</p>
+					<i class="material-icons">expand_more</i>
+				</button>
+				<div class="container-fluid collapse show" id="mo-food">
+					<div class="row">
+						<div class="container-fluid foodTile">
+							<div class="row">
+								<div class="col-2 butt-container btn-group-vertical">
+									<button class="btn add-food">
+										<i class="material-icons">add</i>
+									</button>
+									<div class="amountBox">0</div>
+									<button class="btn remove-food">
+										<i class="material-icons">remove</i>
+									</button>
+								</div>
+								<div class="col-7 food-info">
+									<p class="foodname">Tomato soup</p>
+									<p class="foodprice">30 Kč</p>
+									<p class="fooddesc">soup of tomatoes</p>
+								</div>
+								<div class="col-3 img-container">
+									<img />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container-fluid foodTile">
+							<div class="row">
+								<div class="col-2 butt-container btn-group-vertical">
+									<button class="btn add-food">
+										<i class="material-icons">add</i>
+									</button>
+									<div class="amountBox">0</div>
+									<button class="btn remove-food">
+										<i class="material-icons">remove</i>
+									</button>
+								</div>
+								<div class="col-7 food-info">
+									<p class="foodname">Lemon chicken</p>
+									<p class="foodprice">120 Kč</p>
+									<p class="fooddesc"></p>
+								</div>
+								<div class="col-3 img-container">
+									<img />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container-fluid foodTile">
+							<div class="row">
+								<div class="col-2 butt-container btn-group-vertical">
+									<button class="btn add-food">
+										<i class="material-icons">add</i>
+									</button>
+									<div class="amountBox">0</div>
+									<button class="btn remove-food">
+										<i class="material-icons">remove</i>
+									</button>
+								</div>
+								<div class="col-7 food-info">
+									<p class="foodname">Vegetable korma</p>
+									<p class="foodprice">100 Kč</p>
+									<p class="fooddesc"></p>
+								</div>
+								<div class="col-3 img-container">
+									<img />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container-fluid foodTile">
+							<div class="row">
+								<div class="col-2 butt-container btn-group-vertical">
+									<button class="btn add-food">
+										<i class="material-icons">add</i>
+									</button>
+									<div class="amountBox">0</div>
+									<button class="btn remove-food">
+										<i class="material-icons">remove</i>
+									</button>
+								</div>
+								<div class="col-7 food-info">
+									<p class="foodname">Vegetable mix</p>
+									<p class="foodprice">90 Kč</p>
+									<p class="fooddesc"></p>
+								</div>
+								<div class="col-3 img-container">
+									<img />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container-fluid foodTile">
+							<div class="row">
+								<div class="col-2 butt-container btn-group-vertical">
+									<button class="btn add-food">
+										<i class="material-icons">add</i>
+									</button>
+									<div class="amountBox">0</div>
+									<button class="btn remove-food">
+										<i class="material-icons">remove</i>
+									</button>
+								</div>
+								<div class="col-7 food-info">
+									<p class="foodname">Tikka</p>
+									<p class="foodprice">200 Kč</p>
+									<p class="fooddesc">gud fud</p>
+								</div>
+								<div class="col-3 img-container">
+									<img />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</html>
+	<script>var food_amounts = document.querySelectorAll('.amountBox');food_amounts.forEach(function(amountElem) {var btnMore = amountElem.previousSibling;var btnLess = amountElem.nextSibling;btnMore.addEventListener("click", function() {var oldnum = amountElem.innerHTML;var newnum = parseInt(oldnum) + 1;amountElem.innerHTML = newnum;})btnLess.addEventListener("click", function() {var oldnum = amountElem.innerHTML;var newnum = parseInt(oldnum) - 1;amountElem.innerHTML = (newnum>0) ? newnum : 0;})})</script>
