@@ -40,27 +40,33 @@ body {
 /*   FOOD MENU   */
 
 .daybtn {
-    width: calc(100% - 2vw * 2);
     background-color: var(--primary-back);
     color: var(--secondary-text);
+    
     margin: 2vw;
+    margin-bottom: 0;
 
-    font-size: 2vw;
+    width: calc(100% - 2vw * 2);
+    height: 2rem;
 
-    height: 3em;
     border: 0;
     border-radius: 3px;
+
     position: relative;
-    line-height: 3em;
+    line-height: 2rem;
+    
 }
 
-.daybtn i, p {
+.daybtn i, .daybtn p {
+    font-size: 1rem;
     vertical-align: middle;
     position: absolute;
     top: 0;
+
 }
 
 .daybtn i {
+    margin: 0.5em;
     right: 0;
 }
 
@@ -71,7 +77,7 @@ body {
     border-radius: 5px;
     background-color: var(--primary-back);
     
-    margin: 1em;
+    margin: 0.7em;
     margin-bottom: 0.1em;
     padding: calc(var(--pad)*2);
     
@@ -112,11 +118,13 @@ body {
 }
 
 .add-food i, .remove-food i {
-    font-size: 4vw;
+    font-size: 1.5rem;
 
     position: absolute;
-    left: calc(50% - 0.5em);
-    top: calc(50% - 0.5em);
+
+    --offset: calc(50% - 1.5rem / 2);
+    left: var(--offset);
+    top: var(--offset);
 }
 
 .add-food i:hover, .remove-food i:hover {
@@ -142,6 +150,8 @@ body {
     font-size: 1.1em;
     font-weight: bold;
     
+    color: var(--darkish);
+
     position: absolute;
 }
 .foodname {
@@ -181,7 +191,6 @@ body {
     margin: 1em;
 }
 
-
 .form-control {
     width: 80%;
     font-size: 4vw;
@@ -196,7 +205,6 @@ body {
     background-color: transparent;
     color: var(--primary-col);
 }
-
 
 .custom-control-label {
     font-size: 4vw;
@@ -235,33 +243,42 @@ input[type=radio] {
     border: 0; 
     border-top: 1px solid var(--separator);
 
-    width: 50%;
     display: inline-block;
-    height: 10vw;
+    height: 7vh;
     
 }
 
-#close {
-    background-color: var(--darkish);
-    float: left;
-}
-
-#close i {
-    color: var(--primary-col);
-
-    font-size: var(--but-size);
-}
-
-#submit i {
-    color: var(--primary-col);
-
-    font-size: var(--but-size);
-}
-
-#submit {
-    border-left: 1px solid var(--separator);
-    background-color: var(--darkish);
+.cancel {
+    background-color: var(--primary-col);
     float: right;
+}
+
+.cancel i {
+    color: var(--dark);
+
+    font-size: 2rem;
+}
+
+.submit i {
+    color: var(--primary-col);
+
+    font-size: var(--but-size);
+}
+
+.submit {
+    border-left: 1px solid var(--separator);
+    background-color: var(--primary-col);
+    float: left;
+    color: var(--dark);
+    font-size: 1rem;
+}
+
+#foodsubmit {
+    width: 75%;
+}
+
+#foodreset {
+    width: 25%;
 }
 
 /*   ORDER   */
