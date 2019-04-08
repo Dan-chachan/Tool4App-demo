@@ -206,7 +206,7 @@ body {
 
 #summary {
     display: none;
-    background-color: red;
+    background-color: var(--secondary-back);
 }
 /*   FOOD MENU   */
 
@@ -311,6 +311,18 @@ input[type=radio] {
 }
 
 /*   ORDER   */
+
+/*   SUMMARY    */
+#foodpick, #summary {
+    display: none;
+}
+.show {
+    display: block !important; 
+}
+
+#header {
+    font-weight: bold;
+}
 
 
 

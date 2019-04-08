@@ -18,7 +18,7 @@ html(lang='en')
 
 
   body
-    .container-fluid#foodpick
+    .container-fluid.show#foodpick
       button.mo-button.daybtn(data-toggle="collapse", data-target="#mo-food")
         p Monday
         i.material-icons expand_more
@@ -55,7 +55,8 @@ html(lang='en')
                   img(src='')
 
 
-    .container-fluid#summary      
+    .container#summary  
+      div#header Your order
 
 
   .buttContainer#foodButtons
@@ -69,6 +70,8 @@ script.
   var totalAmount = 0;
   var orderbtn = document.getElementById("foodsubmit");
   var orderPanel = orderbtn.parentNode;
+
+  var foods = []
 
   var food_amounts = document.querySelectorAll('.amountBox');
     food_amounts.forEach(function(amountElem) {
@@ -124,6 +127,8 @@ script.
     food_amounts.forEach(function(amountElem) {
       amountElem.innerHTML = "0";
     })
+
+    switchView();
   })
 
   // SUMMARIZE
@@ -132,14 +137,14 @@ script.
 
   orderbtn.addEventListener("click", function() {
     
-    var foods = []
+    foods = [];
     food_amounts.forEach(function(amountElem) {
       var amount = amountElem.innerHTML;
       if (parseInt(amount) > 0) {
-        var price = getPrice(amountElem);
+        var price = getPrice(amountElem) * parseInt(amount);
         var foodName = amountElem.parentNode.nextSibling.firstChild;
         var food = [foodName.innerHTML , price];
-        foods.push(food)
+        foods.push(food);
       }
     })
     documentFoods(foods);
@@ -160,25 +165,17 @@ script.
 
       var foodprice = document.createElement("div");
       foodprice.className = "col-3";
-      foodname.innerHTML = food[1];
+      foodprice.innerHTML = food[1];
 
       node.appendChild(row);
       row.appendChild(foodname);
       row.appendChild(foodprice);
-    }) 
-
-    
+    })  
   }
 
   function switchView() {
-    if (summary.style.display == "none") {
-      summary.style.display = "block";
-      foodpick.style.display = "none";
-    }
-    else {
-      summary.style.display = "none";
-      foodpick.style.display = "block";
-    }
+    summary.classList.toggle("show");
+    foodpick.classList.toggle("show");
   }
 
   function getPrice(elem) {
