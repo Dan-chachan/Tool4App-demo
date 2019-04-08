@@ -10,10 +10,12 @@
     --secondary-back-text: #343342;
 
     --logo-back: #ffffff;
-    --primary-back: #F5F4D2;
+    --primary-back: rgb(233, 232, 198);
     --primary-back-text: #757575;
 
     --pad: 4px;
+    --large-pad: 8px;
+
     --but-size: 8vw;
 
     --tile-ht: 7em;
@@ -23,7 +25,6 @@
     --darkish: #343342;
     font-family: "Open Sans";
 
-    font-size: 32px;
 }
 
 
@@ -43,13 +44,15 @@ body {
 /*   FOOD MENU   */
 
 .daybtn {
-    background-color: var(--primary-back);
+    background-color: var(--secondary-back);
     color: var(--secondary-text);
     
-    margin: 2vw;
-    margin-bottom: 0;
+    z-index: 100;
 
-    width: calc(100% - 2vw * 2);
+    margin-top: 1rem;
+    margin-bottom: 0px;
+
+    width: calc(100%);
     height: 2rem;
 
     border: 0;
@@ -77,10 +80,10 @@ body {
     font-size: 3vw;
     height: var(--tile-ht);
 
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: var(--primary-back);
     
-    margin: 0.7rem;
+    margin: 0.5rem;
     margin-bottom: 0.1rem;
     padding: calc(var(--pad)*2);
     
@@ -93,6 +96,7 @@ body {
     position: relative;
 }
 
+/* Redundant?*/
 .line {
     height: 2px;
     background-color: var(--primary-back);
@@ -100,17 +104,17 @@ body {
 }
 
 .amountBox {
-    --size: 5vw;
+    --size: 1rem;
     height: var(--size);
     width: var(--size);
     background-color: var(--primary-back);
     border-radius: 999px;
 
-    z-index: 999;
+    z-index: 990;
     position: absolute;
 
     text-align: center;
-    line-height: 2em;
+    line-height: 1rem;
     vertical-align: middle;
 
     top: calc(50% - var(--size) / 2);
@@ -121,11 +125,11 @@ body {
 }
 
 .add-food i, .remove-food i {
-    font-size: 1.5rem;
+    font-size: 1rem;
 
     position: absolute;
 
-    --offset: calc(50% - 1.5rem / 2);
+    --offset: calc(50% - 1rem / 2);
     left: var(--offset);
     top: var(--offset);
 }
@@ -184,6 +188,26 @@ body {
     height: 100%;
 }
 
+#foodButtons {
+    display: none;
+}
+
+.foods-container {
+
+    margin-top: -0.6rem;
+    background-color: var(--secondary-back);
+}
+
+.food-main {
+    margin: calc(var(--large-pad));
+    padding: 0px;
+    width: calc(100% - var(--large-pad) * 2);
+}
+
+#summary {
+    display: none;
+    background-color: red;
+}
 /*   FOOD MENU   */
 
 
@@ -237,9 +261,11 @@ input[type=radio] {
 
 .buttContainer {
     position: fixed;
+    z-index: 999;
     width: 100%;
     bottom: 0;
     left: 0;
+
 }
 
 .bottomButtons {
