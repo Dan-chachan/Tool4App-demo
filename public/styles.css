@@ -41,6 +41,59 @@ body {
     font-family: "Open Sans";
 }
 
+/* checkboxes and radio buttons */
+input[type=checkbox], input[type=radio] {
+    /* hide the checkbox altogether */
+    /* instead use label:before */
+    display: none;
+}
+input + label {
+    
+    /* text as block leave space for checkbox */
+    display: block;
+    margin: 2px 0;
+    padding-left: 1.4em;  /* ^ space */
+    position: relative;
+    cursor: pointer;
+}
+input + label:before, input + label:after {
+    /* positioning and size of checkbox */
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0.3em;
+    top: 0.3em;
+    width: 0.8em;
+    height: 0.8em;
+}
+input + label:after {
+    transition: opacity var(--trans-len) var(--trans-fn);
+    transition-property: transform, opacity;
+    
+    transform: scale(0);
+    opacity: 0;
+}
+input:checked + label:after {
+    transform: scale(0.5);
+    opacity: 1;
+}
+[type=radio] + label:before, [type=radio] + label:after {
+    /* round shape for radio */
+    border-radius: 9999em;
+}
+[type=checkbox] + label:before, [type=checkbox] + label:after {
+    /* slightly rounded corners for checkbox */
+    border-radius: 0.1em;
+}
+
+/*  Colors  */
+input, label.radio:before, label.check:before {
+    color: var(--dark);
+    background: var(--primary-back);
+}
+label.radio:after, label.check:after {
+    background: var(--primary-col);
+}
 /*   FOOD MENU   */
 
 .daybtn {
@@ -223,49 +276,57 @@ body {
 .flex-container {
     display: flex;
     flex-direction: column;
+
+    font-size: 1.5rem;
 }
 
+#order-main {
+    height: 100vh;
+    padding: 3vw;
+    padding-top: 10vh;
+    
+    background-color:var(--secondary-back);
+}
 
+#paymentType {
+    flex-direction: column;
+    justify-content: center;
 
-.form-control {
+    padding: 1em;
+}
+
+#paymentType p {
+    font-weight: bold;
+    margin: 2vh 0 1vh 0;
+}
+
+.infoitem {
+    display: flex;
+
+    padding: 1em;
+}
+
+.infoitem span {
+    display: flex;
+    align-items: center;
+
+    color: var(--primary-col);
+    margin-right: 1vw;
+    font-size: 100%;
+}
+
+.infoitem input {
     width: 80%;
-    font-size: 4vw;
+
+    color: var(--dark);
+    background-color: transparent;
+    
     border: 0px;
     border-bottom: 1px solid var(--separator);
-    background-color: transparent;
 }
 
-.input-group-text {
-    font-size: 6vw;
-    border: 0px;
-    background-color: transparent;
-    color: var(--primary-col);
-}
-
-.custom-control-label {
-    font-size: 4vw;
-}
-
-input[type=radio] {
-    width: 100%;
-    height: 10em;
-}
-
-#payment-type {
-    text-align: center;
-}
-#payment-type p {
-    margin-top: 2vh;
-
-    text-align: left;
-
-    font-size: 4vw;
-    font-variant: small-caps;
-    font-weight: bold;
-}
-
-.custom-control-inline {
-    margin-right: 15vw;
+.infoitem input:focus {
+    border-bottom: 3px solid var(--primary-col);
 }
 
 .btn-container {
@@ -322,6 +383,10 @@ input[type=radio] {
 }
 
 /*   ORDER   */
+
+
+
+
 
 /*   SUMMARY    */
 #foodpick, #summary {

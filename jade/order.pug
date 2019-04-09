@@ -8,22 +8,34 @@ html(lang='en')
     link(rel='stylesheet', href='styles.css')
   body
 
-    .flex-container
+    .flex-container#order-main
       form.flex-container#addressForm
-        span.material-icons person
-        input.name(type="text" placeholder="Name") 
+        .infoitem
+          span.material-icons person
+          input.name(type="text" placeholder="Name" required) 
+        .infoitem
+          span.material-icons place
+          input.name(type="text" placeholder="Place" required) 
+        .infoitem
+          span.material-icons phone
+          input.name(type="text" placeholder="Phone" required) 
+        .infoitem
+          span.material-icons create
+          input.name(type="text" placeholder="Note") 
 
-        span.material-icons place
-        input.name(type="text" placeholder="Place") 
 
-        span.material-icons phone
-        input.name(type="text" placeholder="Phone") 
+      form.flex-container#paymentType
+        p Payment type
 
-        span.material-icons create
-        input.name(type="text" placeholder="Note") 
+        input(type='radio' name='payment' value='false' id='cash' checked)
+        label.radio(for='cash') Cash
+
+        input(type='radio' name='payment' value='true' id='card')
+        label.radio(for='card') Card
+            
 
   .btn-container
-    button#close(href='menu.html')
-      span.material-icons  close 
-    button#submit(form='addressForm', type='submit')
-      span.material-icons  check 
+    button#order-back(href='menu.html')
+      span.material-icons arrow_back 
+    button#order-submit(form='addressForm', type='submit')
+      span.material-icons check
