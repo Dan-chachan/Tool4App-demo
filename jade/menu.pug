@@ -21,7 +21,7 @@ html(lang='en')
     .container-fluid.show#foodpick
       button.mo-button.daybtn(data-toggle="collapse", data-target="#mo-food")
         p Monday
-        i.material-icons expand_more
+        em.material-icons expand_more
 
       .container-fluid.collapse.show.foods-container#mo-food
 
@@ -35,31 +35,31 @@ html(lang='en')
           ]
 
         each food in foods
+          .foodTile
+            .butt-container.btn-group-vertical
+              button.btn.add-food(onclick="addFood()")
+                em.material-icons  add
 
-          .row
-            .container-fluid.foodTile
-              .row
-                .col-2.butt-container.btn-group-vertical
-                  button.btn.add-food
-                    i.material-icons  add
+              .amountBox 0
 
-                  .amountBox 0
-
-                  button.btn.remove-food
-                    i.material-icons  remove 
-                .col-7.food-info
-                  p.foodname= food[0] 
-                  p.foodprice= food[1] + " Kč"
-                  p.fooddesc= food[2] 
-                .col-3.img-container
-                  img(src='')
+              button.btn.remove-food
+                em.material-icons  remove 
+            .foodinfo
+              p.foodname= food[0] 
+              p.foodprice= food[1] + " Kč"
+              p.fooddesc= food[2] 
+            .img-container
+              img(src='')
 
 
     .container#summary  
       div#header Your order
+      div#sum-container
 
 
   .buttContainer#foodButtons
+    button.back.show.bottomButtons#back(href='menu.html')
+      i.material-icons arrow_back
     button.submit.bottomButtons#foodsubmit(href="summary.html")
       | Order
     button.cancel.bottomButtons#foodreset(href='menu.html')
@@ -71,53 +71,71 @@ script.
   var orderbtn = document.getElementById("foodsubmit");
   var orderPanel = orderbtn.parentNode;
 
-  var foods = []
+  console.log("here");
 
+  var foods = [];
+  console.log("here");
   var food_amounts = document.querySelectorAll('.amountBox');
-    food_amounts.forEach(function(amountElem) {
-      var btnMore = amountElem.previousSibling;
-      var btnLess = amountElem.nextSibling;
+    
+  console.log("food amounts", food_amounts);
+  
+  food_amounts.forEach(function(amountElem) {
+    console.log("inside for")
+    var btnMore = amountElem.previousSibling;
+    var btnLess = amountElem.nextSibling;
+    
+    // ADD
+    //- btnMore.addEventListener("click", function() {
+    //-   var oldnum = amountElem.innerHTML;
+    //-   var newnum = parseInt(oldnum) + 1;
+    //-   amountElem.innerHTML = newnum;
+
+    //-   var price = getPrice(amountElem);
+    //-   totalPrice += price;
+    //-   totalAmount += 1;
+    //-   var item = (totalAmount == 1) ? "item" : "items";
       
-      // ADD
-      btnMore.addEventListener("click", function() {
-        var oldnum = amountElem.innerHTML;
-        var newnum = parseInt(oldnum) + 1;
-        amountElem.innerHTML = newnum;
+    //-   orderPanel.style.display = "block";
+    //-   orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
+    //- })
 
-        var price = getPrice(amountElem);
-        totalPrice += price;
-        totalAmount += 1;
-        var item = (totalAmount == 1) ? "item" : "items";
-        
-        orderPanel.style.display = "block";
-        orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
-      })
+    //- // REMOVE
+    //- btnLess.addEventListener("click", function() {
+    //-   var oldnum = amountElem.innerHTML;
+    //-   var newnum = parseInt(oldnum) - 1;
+
+    //-   if (newnum >= 0) {
+    //-     amountElem.innerHTML = newnum;
+
+    //-     var price = getPrice(amountElem);
+    //-     totalPrice -= (totalPrice > 0) ? price : 0;
+    //-     totalAmount -= (totalAmount > 0) ? 1 : 0;
+
+    //-   }
+
+    //-   var item = (totalAmount == 1) ? "item" : "items";
+    //-   if (totalAmount <= 0 && totalPrice <= 0) {
+    //-     orderPanel.style.display = "none";
+    //-   }
+    //-   else {
+    //-     orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
+    //-   }
+    //- })
+  })
+  function addFood() {
+      var oldnum = amountElem.innerHTML;
+      var newnum = parseInt(oldnum) + 1;
+      amountElem.innerHTML = newnum;
+
+      var price = getPrice(amountElem);
+      totalPrice += price;
+      totalAmount += 1;
+      var item = (totalAmount == 1) ? "item" : "items";
       
-      // REMOVE
-      btnLess.addEventListener("click", function() {
-        var oldnum = amountElem.innerHTML;
-        var newnum = parseInt(oldnum) - 1;
-
-        if (newnum >= 0) {
-          amountElem.innerHTML = newnum;
-
-          var price = getPrice(amountElem);
-          totalPrice -= (totalPrice > 0) ? price : 0;
-          totalAmount -= (totalAmount > 0) ? 1 : 0;
-
-        }
-
-        var item = (totalAmount == 1) ? "item" : "items";
-        if (totalAmount <= 0 && totalPrice <= 0) {
-          orderPanel.style.display = "none";
-        }
-        else {
-          orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
-        }
-      })
-    })
-
-  // RESET
+      orderPanel.style.display = "block";
+      orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
+  }
+    // RESET
   var btnReset = document.getElementById("foodreset")
   btnReset.addEventListener("click", function() {
     totalPrice = 0;
@@ -127,8 +145,9 @@ script.
     food_amounts.forEach(function(amountElem) {
       amountElem.innerHTML = "0";
     })
-
-    switchView();
+    foods = [];
+    document.getElementById("sum-container").innerHTML = "";
+    switchView(true);
   })
 
   // SUMMARIZE
@@ -136,7 +155,7 @@ script.
   var foodpick = document.getElementById("foodpick");
 
   orderbtn.addEventListener("click", function() {
-    
+
     foods = [];
     food_amounts.forEach(function(amountElem) {
       var amount = amountElem.innerHTML;
@@ -152,7 +171,7 @@ script.
   })
 
   function documentFoods(foods) {
-    var node = document.getElementById("summary");
+    var node = document.getElementById("sum-container");
 
     foods.forEach(function(food) {
       var row = document.createElement("div");
@@ -173,9 +192,16 @@ script.
     })  
   }
 
-  function switchView() {
-    summary.classList.toggle("show");
-    foodpick.classList.toggle("show");
+  function switchView(home=false) {
+    if (!home) {
+      summary.classList.toggle("show");
+      foodpick.classList.toggle("show");
+    }
+    else {
+      summary.classList.remove("show");
+      foodpick.classList.add("show");
+    }
+
   }
 
   function getPrice(elem) {

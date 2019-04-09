@@ -3,32 +3,41 @@ html(lang='en')
   head
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    
+
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+
     link(rel='stylesheet', href='styles.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+
+
   body
     .container-fluid
       .row
         .col-6
           a(href='menu')
             .btn.btn-block.tile
-              i.material-icons  restaurant_menu 
+              em.material-icons  restaurant_menu 
               p.buttonDesc  Menu 
         .col-6
           a(href='news')
             .btn.btn-block.tile
-              i.material-icons  date_range 
+              em.material-icons  date_range 
               p.buttonDesc  News 
       .row
         .col-6
           a(href='order')
             .btn.btn-block.tile
-              i.material-icons  shopping_cart 
+              em.material-icons  shopping_cart 
               p.buttonDesc  Order 
         .col-6
           a(href='contacts')
             .btn.btn-block.tile
-              i.material-icons  phone 
+              em.material-icons  phone 
               p.buttonDesc  Contacts 

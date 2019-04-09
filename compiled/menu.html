@@ -2,6 +2,7 @@
 	<html lang="en">
 		<head>
 			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 			<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&amp;subset=latin-ext" rel="stylesheet" />
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -9,549 +10,125 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		
-			<style>
-				:root {
-    --accent-col: #316f07;
-    --primary-col: #7DEC1F;
-    --primary-dark: #56A315;
-
-    --separator: #999999;
-
-    --secondary-back: #fcfad7;
-    --primary-text: #fcfad7;
-    --secondary-back-text: #343342;
-
-    --logo-back: #ffffff;
-    --primary-back: #F5F4D2;
-    --primary-back-text: #757575;
-
-    --pad: 4px;
-    --but-size: 8vw;
-
-    --tile-ht: 7em;
-    --intile-ht: calc(var(--tile-ht) - var(--pad)*4);
-
-    --dark: #1c1c24;
-    --darkish: #343342;
-    font-family: "Open Sans";
-}
-
-
-body { 
-    background-color: var(--darkish); 
-    color: var(--primary-back-text);
-    margin: 0;
-    box-sizing: border-box;
-    
-}
-
-*, *::before, *::after { 
-    font-family: "Open Sans";
-}
-
-/*   FOOD MENU   */
-
-.daybtn {
-    width: calc(100% - 2vw * 2);
-    background-color: var(--primary-back);
-    color: var(--secondary-text);
-    margin: 2vw;
-
-    font-size: 2vw;
-
-    height: 3em;
-    border: 0;
-    border-radius: 3px;
-    position: relative;
-    line-height: 3em;
-}
-
-.daybtn i, p {
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-}
-
-.daybtn i {
-    right: 0;
-}
-
-.foodTile {
-    font-size: 3vw;
-    height: var(--tile-ht);
-
-    border-radius: 5px;
-    background-color: var(--primary-back);
-    
-    margin: 1em;
-    margin-bottom: 0.1em;
-    padding: calc(var(--pad)*2);
-    
-    position: relative;
-}
-
-
-.butt-container {
-    height: var(--intile-ht);
-    position: relative;
-}
-
-.line {
-    height: 2px;
-    background-color: var(--primary-back);
-    width: 100%;
-}
-
-.amountBox {
-    --size: 5vw;
-    height: var(--size);
-    width: var(--size);
-    background-color: var(--primary-back);
-    border-radius: 999px;
-
-    z-index: 999;
-    position: absolute;
-
-    text-align: center;
-    line-height: 2em;
-    vertical-align: middle;
-
-    top: calc(50% - var(--size) / 2);
-    left: calc(50% - var(--size) / 2);
-
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-.add-food i, .remove-food i {
-    font-size: 4vw;
-
-    position: absolute;
-    left: calc(50% - 0.5em);
-    top: calc(50% - 0.5em);
-}
-
-.add-food i:hover, .remove-food i:hover {
-    color: var(--primary-back);
-}
-
-.add-food, .remove-food {
-    background-color: var(--primary-col);
-    color: var(--secondary-back);
-
-    position: relative;
-
-    width: 100%;
-    height: 50%;
-}
-
-
-.foodinfo {
-    position: relative;
-}
-
-.foodname, .foodprice {
-    font-size: 1.1em;
-    font-weight: bold;
-    
-    position: absolute;
-}
-.foodname {
-    left: 0px;
-}
-
-.foodprice {
-    right:0px;
-}
-
-.fooddesc {
-    padding-top: 2em;
-    position: absolute;
-    left: 0px;
-    font-size: 1em;
-}
-
-.img-container {
-    height: var(--intile-ht);
-    overflow-x: hidden;   
-    overflow-y: hidden;
-}
-
-/*object fit?*/
-.img-container img {
-    width: 100%;
-    height: 100%;
-}
-
-/*   FOOD MENU   */
-
-
-/*   ORDER   */
-
-.main {
-    background-color: var(--primary-back);
-    margin: 1em;
-}
-
-
-.form-control {
-    width: 80%;
-    font-size: 4vw;
-    border: 0px;
-    border-bottom: 1px solid var(--separator);
-    background-color: transparent;
-}
-
-.input-group-text {
-    font-size: 6vw;
-    border: 0px;
-    background-color: transparent;
-    color: var(--primary-col);
-}
-
-
-.custom-control-label {
-    font-size: 4vw;
-}
-
-input[type=radio] {
-    width: 100%;
-    height: 10em;
-}
-
-#payment-type {
-    text-align: center;
-}
-#payment-type p {
-    margin-top: 2vh;
-
-    text-align: left;
-
-    font-size: 4vw;
-    font-variant: small-caps;
-    font-weight: bold;
-}
-
-.custom-control-inline {
-    margin-right: 15vw;
-}
-
-.buttContainer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-}
-
-.bottomButtons {
-    border: 0; 
-    border-top: 1px solid var(--separator);
-
-    width: 50%;
-    display: inline-block;
-    height: 10vw;
-    
-}
-
-#close {
-    background-color: var(--darkish);
-    float: left;
-}
-
-#close i {
-    color: var(--primary-col);
-
-    font-size: var(--but-size);
-}
-
-#submit i {
-    color: var(--primary-col);
-
-    font-size: var(--but-size);
-}
-
-#submit {
-    border-left: 1px solid var(--separator);
-    background-color: var(--darkish);
-    float: right;
-}
-
-/*   ORDER   */
-
-
-
-/*   HOME   */
-.tile {
-    margin: var(--pad);
-    padding: var(--pad);
-
-    
-    color: var(--primary-text);
-    background-color: var(--primary-col);
-    border: 0px;
-
-    position: relative;
-
-    height: calc(50vh - var(--pad)*2);
-}
-
-.tile i {
-    --f-size: 25vw;
-
-    font-size: var(--f-size);
-
-    position: absolute;
-    text-align: center;
-
-    margin-left: calc(var(--f-size)/-2);
-    margin-top: calc(var(--f-size)/-2);
-
-    left: 50%;
-    top: 50%;
-
-}
-
-.buttonDesc {
-    padding: 0;
-    padding-left: 1vw;
-    margin: 0;
-
-    position: absolute;
-    bottom: 1vh;
-
-    font-size: 5vw;
-}
-
-/*   HOME   */
-
-
-/*   NEWS   */
-
-.grid-container {
-
-    grid-template-columns: 70% 30%;
-}
-
-.newsTile {
-    display: grid;
-    background-color: var(--primary-back);
-    width: 100%;
-    margin: calc(var(--pad)*2);
-    font-size: 3vw;
-
-    max-height: 20vh;
-
-}
-
-.newsTile h1 {
-    font-size: 4vw;
-}
-
-.newsText {
-    padding: 1em 0em 0em 2em;
-
-
-}
-
-/*nebo p?*/
-.newsText h1 {
-    margin: 0;
-    border-bottom: 2px solid gray;
-    color: var(--primary-col);
-}
-.newsText p {
-    margin-right: 2em;
-}
-
-
-.newsTile img {
-    height: 20vh;
-    float: left;
-    vertical-align: middle;
-}
-
-.newsTile:nth-child(2n) > * {
-    float: right;
-}
-.newsTile:nth-child(2n) > .newsText {
-    padding: 1em 0em 0em 2em;
-}
-
-.newsTile::after {
-    clear: both;
-    content:"";
-    display:block;
-}
-/*   NEWS   */
-
-
-/*  CONTACTS  */
-
-.logo {
-    position: relative;
-}
-
-#logo {
-    position: absolute;
-    left: calc(50% - 35vw / 2);
-    top: 1vh;
-    width: 35vw;
-
-}
-
-.link {
-    color: var(--primary-col);
-}
-
-.link:hover {
-    color: var(--primary-dark);
-    text-decoration: none;
-}
-
-#info {
-    margin-top: 10vh;
-    padding: var(--pad);
-}
-
-#map {
-    overflow: hidden;
-    width: 100%;
-    height: 40vw;
-}
-
-#map img {
-    margin-left: -60vw;
-    margin-top: -40vh;
-}
-
-/*  CONTACTS  */
-			</style>
 		</head>
 		<body>
-			<div class="container-fluid">
+			<div class="container-fluid show" id="foodpick">
 				<button class="mo-button daybtn" data-toggle="collapse" data-target="#mo-food">
 					<p>Monday</p>
-					<i class="material-icons">expand_more</i>
+					<em class="material-icons">expand_more</em>
 				</button>
-				<div class="container-fluid collapse show" id="mo-food">
-					<div class="row">
-						<div class="container-fluid foodTile">
-							<div class="row">
-								<div class="col-2 butt-container btn-group-vertical">
-									<button class="btn add-food">
-										<i class="material-icons">add</i>
-									</button>
-									<div class="amountBox">0</div>
-									<button class="btn remove-food">
-										<i class="material-icons">remove</i>
-									</button>
-								</div>
-								<div class="col-7 food-info">
-									<p class="foodname">Tomato soup</p>
-									<p class="foodprice">30 Kč</p>
-									<p class="fooddesc">soup of tomatoes</p>
-								</div>
-								<div class="col-3 img-container">
-									<img />
-								</div>
-							</div>
+				<div class="container-fluid collapse show foods-container" id="mo-food">
+					<div class="foodTile">
+						<div class="butt-container btn-group-vertical">
+							<button class="btn add-food" onclick="addFood()">
+								<em class="material-icons">add</em>
+							</button>
+							<div class="amountBox">0</div>
+							<button class="btn remove-food">
+								<em class="material-icons">remove</em>
+							</button>
+						</div>
+						<div class="foodinfo">
+							<p class="foodname">Tomato soup</p>
+							<p class="foodprice">30 Kč</p>
+							<p class="fooddesc">soup of tomatoes</p>
+						</div>
+						<div class="img-container">
+							<img />
 						</div>
 					</div>
-					<div class="row">
-						<div class="container-fluid foodTile">
-							<div class="row">
-								<div class="col-2 butt-container btn-group-vertical">
-									<button class="btn add-food">
-										<i class="material-icons">add</i>
-									</button>
-									<div class="amountBox">0</div>
-									<button class="btn remove-food">
-										<i class="material-icons">remove</i>
-									</button>
-								</div>
-								<div class="col-7 food-info">
-									<p class="foodname">Lemon chicken</p>
-									<p class="foodprice">120 Kč</p>
-									<p class="fooddesc"></p>
-								</div>
-								<div class="col-3 img-container">
-									<img />
-								</div>
-							</div>
+					<div class="foodTile">
+						<div class="butt-container btn-group-vertical">
+							<button class="btn add-food" onclick="addFood()">
+								<em class="material-icons">add</em>
+							</button>
+							<div class="amountBox">0</div>
+							<button class="btn remove-food">
+								<em class="material-icons">remove</em>
+							</button>
+						</div>
+						<div class="foodinfo">
+							<p class="foodname">Lemon chicken</p>
+							<p class="foodprice">120 Kč</p>
+							<p class="fooddesc"></p>
+						</div>
+						<div class="img-container">
+							<img />
 						</div>
 					</div>
-					<div class="row">
-						<div class="container-fluid foodTile">
-							<div class="row">
-								<div class="col-2 butt-container btn-group-vertical">
-									<button class="btn add-food">
-										<i class="material-icons">add</i>
-									</button>
-									<div class="amountBox">0</div>
-									<button class="btn remove-food">
-										<i class="material-icons">remove</i>
-									</button>
-								</div>
-								<div class="col-7 food-info">
-									<p class="foodname">Vegetable korma</p>
-									<p class="foodprice">100 Kč</p>
-									<p class="fooddesc"></p>
-								</div>
-								<div class="col-3 img-container">
-									<img />
-								</div>
-							</div>
+					<div class="foodTile">
+						<div class="butt-container btn-group-vertical">
+							<button class="btn add-food" onclick="addFood()">
+								<em class="material-icons">add</em>
+							</button>
+							<div class="amountBox">0</div>
+							<button class="btn remove-food">
+								<em class="material-icons">remove</em>
+							</button>
+						</div>
+						<div class="foodinfo">
+							<p class="foodname">Vegetable korma</p>
+							<p class="foodprice">100 Kč</p>
+							<p class="fooddesc"></p>
+						</div>
+						<div class="img-container">
+							<img />
 						</div>
 					</div>
-					<div class="row">
-						<div class="container-fluid foodTile">
-							<div class="row">
-								<div class="col-2 butt-container btn-group-vertical">
-									<button class="btn add-food">
-										<i class="material-icons">add</i>
-									</button>
-									<div class="amountBox">0</div>
-									<button class="btn remove-food">
-										<i class="material-icons">remove</i>
-									</button>
-								</div>
-								<div class="col-7 food-info">
-									<p class="foodname">Vegetable mix</p>
-									<p class="foodprice">90 Kč</p>
-									<p class="fooddesc"></p>
-								</div>
-								<div class="col-3 img-container">
-									<img />
-								</div>
-							</div>
+					<div class="foodTile">
+						<div class="butt-container btn-group-vertical">
+							<button class="btn add-food" onclick="addFood()">
+								<em class="material-icons">add</em>
+							</button>
+							<div class="amountBox">0</div>
+							<button class="btn remove-food">
+								<em class="material-icons">remove</em>
+							</button>
+						</div>
+						<div class="foodinfo">
+							<p class="foodname">Vegetable mix</p>
+							<p class="foodprice">90 Kč</p>
+							<p class="fooddesc"></p>
+						</div>
+						<div class="img-container">
+							<img />
 						</div>
 					</div>
-					<div class="row">
-						<div class="container-fluid foodTile">
-							<div class="row">
-								<div class="col-2 butt-container btn-group-vertical">
-									<button class="btn add-food">
-										<i class="material-icons">add</i>
-									</button>
-									<div class="amountBox">0</div>
-									<button class="btn remove-food">
-										<i class="material-icons">remove</i>
-									</button>
-								</div>
-								<div class="col-7 food-info">
-									<p class="foodname">Tikka</p>
-									<p class="foodprice">200 Kč</p>
-									<p class="fooddesc">gud fud</p>
-								</div>
-								<div class="col-3 img-container">
-									<img />
-								</div>
-							</div>
+					<div class="foodTile">
+						<div class="butt-container btn-group-vertical">
+							<button class="btn add-food" onclick="addFood()">
+								<em class="material-icons">add</em>
+							</button>
+							<div class="amountBox">0</div>
+							<button class="btn remove-food">
+								<em class="material-icons">remove</em>
+							</button>
+						</div>
+						<div class="foodinfo">
+							<p class="foodname">Tikka</p>
+							<p class="foodprice">200 Kč</p>
+							<p class="fooddesc">gud fud</p>
+						</div>
+						<div class="img-container">
+							<img />
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="container" id="summary">
+				<div id="header">Your order</div>
+				<div id="sum-container"></div>
+			</div>
 		</body>
+		<div class="buttContainer" id="foodButtons">
+			<button class="back show bottomButtons" id="back" href="menu.html">
+				<i class="material-icons">arrow_back</i>
+			</button>
+			<button class="submit bottomButtons" id="foodsubmit" href="summary.html">Order</button>
+			<button class="cancel bottomButtons" id="foodreset" href="menu.html">
+				<i class="material-icons">restore</i>
+			</button>
+		</div>
 	</html>
-	<script>var food_amounts = document.querySelectorAll('.amountBox');food_amounts.forEach(function(amountElem) {var btnMore = amountElem.previousSibling;var btnLess = amountElem.nextSibling;btnMore.addEventListener("click", function() {var oldnum = amountElem.innerHTML;var newnum = parseInt(oldnum) + 1;amountElem.innerHTML = newnum;})btnLess.addEventListener("click", function() {var oldnum = amountElem.innerHTML;var newnum = parseInt(oldnum) - 1;amountElem.innerHTML = (newnum>0) ? newnum : 0;})})</script>
+	<script>var totalPrice = 0;var totalAmount = 0;var orderbtn = document.getElementById("foodsubmit");var orderPanel = orderbtn.parentNode;console.log("here");var foods = [];console.log("here");var food_amounts = document.querySelectorAll('.amountBox'); console.log("food amounts", food_amounts);food_amounts.forEach(function(amountElem) { console.log("inside for") var btnMore = amountElem.previousSibling; var btnLess = amountElem.nextSibling; // ADD //- btnMore.addEventListener("click", function() { //- var oldnum = amountElem.innerHTML; //- var newnum = parseInt(oldnum) + 1; //- amountElem.innerHTML = newnum; //- var price = getPrice(amountElem); //- totalPrice += price; //- totalAmount += 1; //- var item = (totalAmount == 1) ? "item" : "items"; //- orderPanel.style.display = "block"; //- orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; //- }) //- // REMOVE //- btnLess.addEventListener("click", function() { //- var oldnum = amountElem.innerHTML; //- var newnum = parseInt(oldnum) - 1; //- if (newnum>= 0) { //- amountElem.innerHTML = newnum; //- var price = getPrice(amountElem); //- totalPrice -= (totalPrice>0) ? price : 0; //- totalAmount -= (totalAmount>0) ? 1 : 0; //- } //- var item = (totalAmount == 1) ? "item" : "items"; //- if (totalAmount
+		<= 0 && totalPrice<= 0) { //- orderPanel.style.display = "none"; //- } //- else { //- orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; //- } //- })})function addFood() { var oldnum = amountElem.innerHTML; var newnum = parseInt(oldnum) + 1; amountElem.innerHTML = newnum; var price = getPrice(amountElem); totalPrice += price; totalAmount += 1; var item = (totalAmount == 1) ? "item" : "items"; orderPanel.style.display = "block"; orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";} // RESETvar btnReset = document.getElementById("foodreset")btnReset.addEventListener("click", function() { totalPrice = 0; totalAmount = 0; orderPanel.style.display = "none"; food_amounts.forEach(function(amountElem) { amountElem.innerHTML = "0"; }) foods = []; document.getElementById("sum-container").innerHTML = ""; switchView(true);})// SUMMARIZEvar summary = document.getElementById("summary");var foodpick = document.getElementById("foodpick");orderbtn.addEventListener("click", function() { foods = []; food_amounts.forEach(function(amountElem) { var amount = amountElem.innerHTML; if (parseInt(amount)>0) { var price = getPrice(amountElem) * parseInt(amount); var foodName = amountElem.parentNode.nextSibling.firstChild; var food = [foodName.innerHTML , price]; foods.push(food); } }) documentFoods(foods); switchView();})function documentFoods(foods) { var node = document.getElementById("sum-container"); foods.forEach(function(food) { var row = document.createElement("div"); row.className = "row"; var foodname = document.createElement("div"); foodname.className = "col-9"; foodname.innerHTML = food[0]; console.log(food[0]); var foodprice = document.createElement("div"); foodprice.className = "col-3"; foodprice.innerHTML = food[1]; node.appendChild(row); row.appendChild(foodname); row.appendChild(foodprice); }) }function switchView(home=false) { if (!home) { summary.classList.toggle("show"); foodpick.classList.toggle("show"); } else { summary.classList.remove("show"); foodpick.classList.add("show"); }}function getPrice(elem) { var parent = elem.parentNode; var foodinfo = parent.nextSibling; var price = foodinfo.getElementsByClassName("foodprice")[0].innerHTML; return parseInt(price);}</script>

@@ -63,7 +63,7 @@ body {
     
 }
 
-.daybtn i, .daybtn p {
+.daybtn em, .daybtn p {
     font-size: 1rem;
     vertical-align: middle;
     position: absolute;
@@ -71,7 +71,7 @@ body {
 
 }
 
-.daybtn i {
+.daybtn em {
     margin: 0.5rem;
     right: 0;
 }
@@ -80,51 +80,61 @@ body {
     font-size: 3vw;
     height: var(--tile-ht);
 
+    margin-bottom: 5px;
     border-radius: 3px;
     background-color: var(--primary-back);
-    
-    margin: 0.5rem;
-    margin-bottom: 0.1rem;
-    padding: calc(var(--pad)*2);
-    
-    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 
 .butt-container {
-    height: var(--intile-ht);
-    position: relative;
+    position: relative; /* anchor for abs pos counter */
+    flex: 0; /* don't stretch with resizing */
+    flex-basis: 3em;
+}
+.butt-container button:nth-child(1) {
+    /* leave space between buttons */
+    margin-bottom: 4px;
+}
+.butt-container button {
+    border-radius: 0;
 }
 
-/* Redundant?*/
+
 .line {
     height: 2px;
-    background-color: var(--primary-back);
-    width: 100%;
+    background-color: var(--primary-col);
+    width: 90%;
+    margin-right: 10%;
 }
 
 .amountBox {
-    --size: 1rem;
-    height: var(--size);
-    width: var(--size);
-    background-color: var(--primary-back);
-    border-radius: 999px;
-
-    z-index: 990;
-    position: absolute;
-
-    text-align: center;
-    line-height: 1rem;
-    vertical-align: middle;
-
-    top: calc(50% - var(--size) / 2);
-    left: calc(50% - var(--size) / 2);
+    pointer-events: none; /* let it be click-through so buttons work */
 
     font-size: 0.9em;
+    --size: 1.6em;
+    height: var(--size);
+    width: var(--size);
+
+    /* centering of everything */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1em;
+    padding-top: calc((var(--size) - 1em) / 2);
+
+    z-index: 990;
+    background-color: var(--primary-back);
+    border-radius: 9999px;
     font-weight: bold;
 }
 
-.add-food i, .remove-food i {
+.add-food em, .remove-food em {
     font-size: 1rem;
 
     position: absolute;
@@ -134,7 +144,7 @@ body {
     top: var(--offset);
 }
 
-.add-food i:hover, .remove-food i:hover {
+.add-food em:hover, .remove-food em:hover {
     color: var(--primary-back);
 }
 
@@ -150,34 +160,33 @@ body {
 
 
 .foodinfo {
-    position: relative;
-}
-
-.foodname, .foodprice {
-    font-size: 1.1em;
-    font-weight: bold;
-    
-    color: var(--darkish);
-
-    position: absolute;
+    flex: 1; /* stretch this however is needed */
+    margin: .6em .6em;
+    position: relative; /* anchor for price */
 }
 .foodname {
-    left: 0px;
+    margin: 0 0 .2em 0;
+    border-bottom: 2px solid var(--primary-back-text);
 }
-
 .foodprice {
-    right:0px;
-}
-
-.fooddesc {
-    padding-top: 2em;
     position: absolute;
-    left: 0px;
+    top: 0;
+    right: 0;
+}
+.foodname, .foodprice {
+    font-size: 1.1em;
+    line-height: 1.2em;
+    font-weight: bold;
+    color: var(--darkish);
+}
+.fooddesc {
+    margin: 0;
     font-size: 1em;
 }
 
 .img-container {
-    height: var(--intile-ht);
+    flex: 0;
+    flex-basis: 7em;
     overflow-x: hidden;   
     overflow-y: hidden;
 }
@@ -193,9 +202,8 @@ body {
 }
 
 .foods-container {
-
-    margin-top: -0.6rem;
-    background-color: var(--secondary-back);
+    padding: 0 .6em;
+    margin-bottom: 1em;
 }
 
 .food-main {
@@ -282,13 +290,13 @@ input[type=radio] {
     float: right;
 }
 
-.cancel i {
+.cancel em {
     color: var(--dark);
 
     font-size: 2rem;
 }
 
-.submit i {
+.submit em {
     color: var(--primary-col);
 
     font-size: var(--but-size);
@@ -320,6 +328,7 @@ input[type=radio] {
     display: block !important; 
 }
 
+
 #header {
     font-weight: bold;
 }
@@ -341,7 +350,7 @@ input[type=radio] {
     height: calc(50vh - var(--pad)*2);
 }
 
-.tile i {
+.tile em {
     --f-size: 25vw;
 
     font-size: var(--f-size);
@@ -378,16 +387,74 @@ input[type=radio] {
     grid-template-columns: 70% 30%;
 }
 
+.newsTile2 {
+    background-image: url("/img/news.jpg");
+    background-repeat: no-repeat;
+    color: var(--dark);
+
+}
+
+.newsTile2 p {
+    filter: drop-shadow(10px 10px 4px var(--dark));
+}
+
+
 .newsTile {
     display: grid;
     background-color: var(--primary-back);
-    width: 100%;
-    margin: calc(var(--pad)*2);
+    width: calc(80% - var(--large-pad) * 2 - 2em);
+    margin: var(--large-pad);
     font-size: 3vw;
 
     max-height: 20vh;
 
 }
+
+.newsTile1 {
+    background-color: var(--primary-back);
+    width: calc(100% - var(--large-pad) * 2);
+    margin: 1em var(--large-pad);
+}
+
+.newsTile1 .img {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 25vh;
+}
+
+.newsTile1 .text {
+    padding: 0 1em;
+}
+
+.newsTile1 h1 {
+    line-height: 1.1em;
+    font-size: 1.4em;
+    border-bottom: .1em solid var(--primary-back-text);
+
+    margin: .8em 0 .4em 0;
+}
+
+.newsTile1 p {
+    margin: 0;
+    padding: 0 0 1.6em 0;
+    font-size: 1em;
+
+    text-align: justify;
+}
+
+.newsTile1 .content-container {
+    padding: var(--large-pad);
+    height: 40%;
+}
+
+.newsTile1 .img-container {
+    height: 20vh;
+    overflow: hidden;
+    position: relative;
+}
+
 
 .newsTile h1 {
     font-size: 4vw;
