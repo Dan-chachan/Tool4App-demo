@@ -19,7 +19,7 @@
 				</button>
 				<div class="container-fluid collapse show foods-container" id="mo-food">
 					<div class="foodTile">
-						<div class="butt-container btn-group-vertical">
+						<div class="btn-group-vertical amount-container">
 							<button class="btn add-food" onclick="addFood()">
 								<em class="material-icons">add</em>
 							</button>
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<div class="foodTile">
-						<div class="butt-container btn-group-vertical">
+						<div class="btn-group-vertical amount-container">
 							<button class="btn add-food" onclick="addFood()">
 								<em class="material-icons">add</em>
 							</button>
@@ -57,7 +57,7 @@
 						</div>
 					</div>
 					<div class="foodTile">
-						<div class="butt-container btn-group-vertical">
+						<div class="btn-group-vertical amount-container">
 							<button class="btn add-food" onclick="addFood()">
 								<em class="material-icons">add</em>
 							</button>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<div class="foodTile">
-						<div class="butt-container btn-group-vertical">
+						<div class="btn-group-vertical amount-container">
 							<button class="btn add-food" onclick="addFood()">
 								<em class="material-icons">add</em>
 							</button>
@@ -95,7 +95,7 @@
 						</div>
 					</div>
 					<div class="foodTile">
-						<div class="butt-container btn-group-vertical">
+						<div class="btn-group-vertical amount-container">
 							<button class="btn add-food" onclick="addFood()">
 								<em class="material-icons">add</em>
 							</button>
@@ -115,20 +115,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="container" id="summary">
-				<div id="header">Your order</div>
-				<div id="sum-container"></div>
+			<div class="flex-container" id="summary">
+				<p>Your order</p>
+				<div class="flex-container" id="sum-container"></div>
 			</div>
 		</body>
-		<div class="buttContainer" id="foodButtons">
-			<button class="back show bottomButtons" id="back" href="menu.html">
+		<div class="btn-container" id="foodbtn-container">
+			<button id="foodback" href="menu.html">
 				<i class="material-icons">arrow_back</i>
 			</button>
-			<button class="submit bottomButtons" id="foodsubmit" href="summary.html">Order</button>
-			<button class="cancel bottomButtons" id="foodreset" href="menu.html">
+			<button id="foodsubmit" href="summary.html">Order</button>
+			<button id="foodreset" href="menu.html">
 				<i class="material-icons">restore</i>
 			</button>
 		</div>
 	</html>
-	<script>var totalPrice = 0;var totalAmount = 0;var orderbtn = document.getElementById("foodsubmit");var orderPanel = orderbtn.parentNode;console.log("here");var foods = [];console.log("here");var food_amounts = document.querySelectorAll('.amountBox'); console.log("food amounts", food_amounts);food_amounts.forEach(function(amountElem) { console.log("inside for") var btnMore = amountElem.previousSibling; var btnLess = amountElem.nextSibling; // ADD //- btnMore.addEventListener("click", function() { //- var oldnum = amountElem.innerHTML; //- var newnum = parseInt(oldnum) + 1; //- amountElem.innerHTML = newnum; //- var price = getPrice(amountElem); //- totalPrice += price; //- totalAmount += 1; //- var item = (totalAmount == 1) ? "item" : "items"; //- orderPanel.style.display = "block"; //- orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; //- }) //- // REMOVE //- btnLess.addEventListener("click", function() { //- var oldnum = amountElem.innerHTML; //- var newnum = parseInt(oldnum) - 1; //- if (newnum>= 0) { //- amountElem.innerHTML = newnum; //- var price = getPrice(amountElem); //- totalPrice -= (totalPrice>0) ? price : 0; //- totalAmount -= (totalAmount>0) ? 1 : 0; //- } //- var item = (totalAmount == 1) ? "item" : "items"; //- if (totalAmount
-		<= 0 && totalPrice<= 0) { //- orderPanel.style.display = "none"; //- } //- else { //- orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; //- } //- })})function addFood() { var oldnum = amountElem.innerHTML; var newnum = parseInt(oldnum) + 1; amountElem.innerHTML = newnum; var price = getPrice(amountElem); totalPrice += price; totalAmount += 1; var item = (totalAmount == 1) ? "item" : "items"; orderPanel.style.display = "block"; orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";} // RESETvar btnReset = document.getElementById("foodreset")btnReset.addEventListener("click", function() { totalPrice = 0; totalAmount = 0; orderPanel.style.display = "none"; food_amounts.forEach(function(amountElem) { amountElem.innerHTML = "0"; }) foods = []; document.getElementById("sum-container").innerHTML = ""; switchView(true);})// SUMMARIZEvar summary = document.getElementById("summary");var foodpick = document.getElementById("foodpick");orderbtn.addEventListener("click", function() { foods = []; food_amounts.forEach(function(amountElem) { var amount = amountElem.innerHTML; if (parseInt(amount)>0) { var price = getPrice(amountElem) * parseInt(amount); var foodName = amountElem.parentNode.nextSibling.firstChild; var food = [foodName.innerHTML , price]; foods.push(food); } }) documentFoods(foods); switchView();})function documentFoods(foods) { var node = document.getElementById("sum-container"); foods.forEach(function(food) { var row = document.createElement("div"); row.className = "row"; var foodname = document.createElement("div"); foodname.className = "col-9"; foodname.innerHTML = food[0]; console.log(food[0]); var foodprice = document.createElement("div"); foodprice.className = "col-3"; foodprice.innerHTML = food[1]; node.appendChild(row); row.appendChild(foodname); row.appendChild(foodprice); }) }function switchView(home=false) { if (!home) { summary.classList.toggle("show"); foodpick.classList.toggle("show"); } else { summary.classList.remove("show"); foodpick.classList.add("show"); }}function getPrice(elem) { var parent = elem.parentNode; var foodinfo = parent.nextSibling; var price = foodinfo.getElementsByClassName("foodprice")[0].innerHTML; return parseInt(price);}</script>
+	<script>var totalPrice = 0;var totalAmount = 0;var orderbtn = document.getElementById("foodsubmit");var orderPanel = orderbtn.parentNode;console.log("here");var foods = [];console.log("here");var food_amounts = document.querySelectorAll('.amountBox'); console.log("food amounts", food_amounts);food_amounts.forEach(function(amountElem) { console.log("inside for") var btnMore = amountElem.previousSibling; var btnLess = amountElem.nextSibling; // ADD btnMore.addEventListener("click", function() { var oldnum = amountElem.innerHTML; var newnum = parseInt(oldnum) + 1; amountElem.innerHTML = newnum; var price = getPrice(amountElem); totalPrice += price; totalAmount += 1; var item = (totalAmount == 1) ? "item" : "items"; orderPanel.style.display = "flex"; orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; }) // REMOVE btnLess.addEventListener("click", function() { var oldnum = amountElem.innerHTML; var newnum = parseInt(oldnum) - 1; if (newnum>= 0) { amountElem.innerHTML = newnum; var price = getPrice(amountElem); totalPrice -= (totalPrice>0) ? price : 0; totalAmount -= (totalAmount>0) ? 1 : 0; } var item = (totalAmount == 1) ? "item" : "items"; if (totalAmount
+		<= 0 && totalPrice<= 0) { orderPanel.style.display = "none"; } else { orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč"; } })})// TESTfunction addFood() { var oldnum = amountElem.innerHTML; var newnum = parseInt(oldnum) + 1; amountElem.innerHTML = newnum; var price = getPrice(amountElem); totalPrice += price; totalAmount += 1; var item = (totalAmount == 1) ? "item" : "items"; orderPanel.style.display = "flex"; orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";} // RESETvar btnReset = document.getElementById("foodreset")btnReset.addEventListener("click", function() { totalPrice = 0; totalAmount = 0; orderPanel.style.display = "none"; food_amounts.forEach(function(amountElem) { amountElem.innerHTML = "0"; }) foods = []; document.getElementById("sum-container").innerHTML = ""; switchView(true);})// SUMMARIZEvar summary = document.getElementById("summary");var foodpick = document.getElementById("foodpick");orderbtn.addEventListener("click", function() { foods = []; food_amounts.forEach(function(amountElem) { var amount = amountElem.innerHTML; if (parseInt(amount)>0) { var price = getPrice(amountElem) * parseInt(amount); var foodName = amountElem.parentNode.nextSibling.firstChild; var food = [foodName.innerHTML , price]; foods.push(food); } }) documentFoods(foods); switchView();})function documentFoods(foods) { var node = document.getElementById("sum-container"); foods.forEach(function(food) { var row = document.createElement("div"); row.className = "row"; var foodname = document.createElement("div"); foodname.className = "col-9"; foodname.innerHTML = food[0]; console.log(food[0]); var foodprice = document.createElement("div"); foodprice.className = "col-3"; foodprice.innerHTML = food[1]; node.appendChild(row); row.appendChild(foodname); row.appendChild(foodprice); }) }function switchView(home=false) { if (!home) { summary.classList.toggle("show"); foodpick.classList.toggle("show"); } else { summary.classList.remove("show"); foodpick.classList.add("show"); }}function getPrice(elem) { var parent = elem.parentNode; var foodinfo = parent.nextSibling; var price = foodinfo.getElementsByClassName("foodprice")[0].innerHTML; return parseInt(price);}</script>

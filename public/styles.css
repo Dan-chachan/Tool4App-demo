@@ -135,33 +135,37 @@ label.radio:after, label.check:after {
 
     margin-bottom: 5px;
     border-radius: 3px;
-    background-color: var(--primary-back);
+    background-color: var(--secondary-back);
 
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 }
 
-
-.butt-container {
-    position: relative; /* anchor for abs pos counter */
-    flex: 0; /* don't stretch with resizing */
+/*
+.btn-container {
+    position: relative; /* anchor for abs pos counter 
+    flex: 0; /* don't stretch with resizing 
     flex-basis: 3em;
 }
-.butt-container button:nth-child(1) {
-    /* leave space between buttons */
+.btn-container button:nth-child(1) {
+    /* leave space between buttons 
     margin-bottom: 4px;
 }
-.butt-container button {
+.btn-container button {
     border-radius: 0;
 }
-
+*/
 
 .line {
     height: 2px;
     background-color: var(--primary-col);
     width: 90%;
     margin-right: 10%;
+}
+
+.amount-container {
+    width: 8vw;
 }
 
 .amountBox {
@@ -209,6 +213,8 @@ label.radio:after, label.check:after {
 
     width: 100%;
     height: 50%;
+    
+    border-radius: 0px;
 }
 
 
@@ -250,7 +256,7 @@ label.radio:after, label.check:after {
     height: 100%;
 }
 
-#foodButtons {
+#foodbtn-container {
     display: none;
 }
 
@@ -268,6 +274,22 @@ label.radio:after, label.check:after {
 #summary {
     display: none;
     background-color: var(--secondary-back);
+    padding: 5vw;
+    font-size: 1rem;
+}
+
+#summary 
+
+#foodback {
+    width: 20%;
+}
+
+#foodsubmit {
+    width: 60%;
+}
+
+#foodreset {
+    width: 20%;
 }
 /*   FOOD MENU   */
 
@@ -277,13 +299,15 @@ label.radio:after, label.check:after {
     display: flex;
     flex-direction: column;
 
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 #order-main {
     height: 100vh;
     padding: 3vw;
     padding-top: 10vh;
+
+    font-size: 0.4rem;
     
     background-color:var(--secondary-back);
 }
@@ -311,8 +335,8 @@ label.radio:after, label.check:after {
     align-items: center;
 
     color: var(--primary-col);
-    margin-right: 1vw;
-    font-size: 100%;
+    margin-right: 3vw;
+    font-size: 150%;
 }
 
 .infoitem input {
@@ -341,45 +365,24 @@ label.radio:after, label.check:after {
 
 .btn-container button {
     width: 50vw;
-
-    border: 0; 
-    border-top: 1px solid var(--separator);
-
     height: 7vh;
     
-}
+    border: 0;
 
-.cancel {
-    background-color: var(--primary-col);
-    float: right;
-}
-
-.cancel em {
-    color: var(--dark);
-
-    font-size: 2rem;
-}
-
-.submit em {
+    background-color: var(--dark);
     color: var(--primary-col);
-
-    font-size: var(--but-size);
 }
 
-.submit {
-    border-left: 1px solid var(--separator);
-    background-color: var(--primary-col);
-    float: left;
-    color: var(--dark);
-    font-size: 1rem;
+.btn-container button span {
+    font-size: 2em;
 }
 
-#foodsubmit {
-    width: 75%;
+#order-back {
+    margin-right: 5px;
+    width: 20%;
 }
-
-#foodreset {
-    width: 25%;
+#order-submit {
+    width: 80%;
 }
 
 /*   ORDER   */

@@ -36,7 +36,7 @@ html(lang='en')
 
         each food in foods
           .foodTile
-            .butt-container.btn-group-vertical
+            .btn-group-vertical.amount-container
               button.btn.add-food(onclick="addFood()")
                 em.material-icons  add
 
@@ -52,17 +52,17 @@ html(lang='en')
               img(src='')
 
 
-    .container#summary  
-      div#header Your order
-      div#sum-container
+    .flex-container#summary 
+      p Your order
+      .flex-container#sum-container
 
 
-  .buttContainer#foodButtons
-    button.back.show.bottomButtons#back(href='menu.html')
+  .btn-container#foodbtn-container
+    button#foodback(href='menu.html')
       i.material-icons arrow_back
-    button.submit.bottomButtons#foodsubmit(href="summary.html")
+    button#foodsubmit(href="summary.html")
       | Order
-    button.cancel.bottomButtons#foodreset(href='menu.html')
+    button#foodreset(href='menu.html')
       i.material-icons  restore
 
 script.
@@ -95,7 +95,7 @@ script.
       totalAmount += 1;
       var item = (totalAmount == 1) ? "item" : "items";
       
-      orderPanel.style.display = "block";
+      orderPanel.style.display = "flex";
       orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
     })
 
@@ -134,7 +134,7 @@ script.
       totalAmount += 1;
       var item = (totalAmount == 1) ? "item" : "items";
       
-      orderPanel.style.display = "block";
+      orderPanel.style.display = "flex";
       orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
   }
     // RESET
