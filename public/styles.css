@@ -220,11 +220,12 @@ body {
 
 
 /*   ORDER   */
-
-.main {
-    background-color: var(--primary-back);
-    margin: 1em;
+.flex-container {
+    display: flex;
+    flex-direction: column;
 }
+
+
 
 .form-control {
     width: 80%;
@@ -267,20 +268,22 @@ input[type=radio] {
     margin-right: 15vw;
 }
 
-.buttContainer {
-    position: fixed;
+.btn-container {
+    display: flex;
+    flex-direction: row;
     z-index: 999;
-    width: 100%;
+    width: 100vw;
+    position: fixed;
     bottom: 0;
     left: 0;
-
 }
 
-.bottomButtons {
+.btn-container button {
+    width: 50vw;
+
     border: 0; 
     border-top: 1px solid var(--separator);
 
-    display: inline-block;
     height: 7vh;
     
 }

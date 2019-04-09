@@ -8,44 +8,22 @@ html(lang='en')
     link(rel='stylesheet', href='styles.css')
   body
 
-    .container.main
-      .row
-        .col
-          form.addressForm
-            .input-group
-              .input-group-prepend
-                i.input-group-text.material-icons  person 
-              input.form-control(type='text', placeholder='Name')
-            .input-group
-              .input-group-prepend
-                i.input-group-text.material-icons  place 
-              input.form-control(type='text', placeholder='Address')
-            .input-group
-              .input-group-prepend
-                i.input-group-text.material-icons  phone 
-              input.form-control(type='text', placeholder='Phone number')
-            .input-group
-              .input-group-prepend
-                i.input-group-text.material-icons  create 
-              input.form-control(type='text', placeholder='Note')
-            
-      .row 
-        .col
-          .container#payment-type
-            p  Payment type 
-            .custom-control-inline.custom-control.custom-radio
-              label.custom-control-label
-                | Card
-                input.custom-control-input(type='radio', name='pay-card')
-            .custom-control-inline.custom-control.custom-radio
-              label.custom-control-label
-                | Cash
-                input.custom-control-input(type='radio', name='pay-cash')
+    .flex-container
+      form.flex-container#addressForm
+        span.material-icons person
+        input.name(type="text" placeholder="Name") 
 
+        span.material-icons place
+        input.name(type="text" placeholder="Place") 
 
-       
-.buttContainer
-  button#close.bottomButtons(href='menu.html')
-    i.material-icons  close 
-  button#submit.bottomButtons(form='addressForm', type='submit')
-    i.material-icons  check 
+        span.material-icons phone
+        input.name(type="text" placeholder="Phone") 
+
+        span.material-icons create
+        input.name(type="text" placeholder="Note") 
+
+  .btn-container
+    button#close(href='menu.html')
+      span.material-icons  close 
+    button#submit(form='addressForm', type='submit')
+      span.material-icons  check 
