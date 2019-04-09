@@ -38,7 +38,7 @@ body {
 }
 
 *, *::before, *::after { 
-    font-family: "Open Sans";
+    font-family: "Lato";
 }
 
 /* checkboxes and radio buttons */
@@ -361,6 +361,7 @@ label.radio:after, label.check:after {
     position: fixed;
     bottom: 0;
     left: 0;
+    background-color: var(--dark);
 }
 
 .btn-container button {
@@ -407,7 +408,7 @@ label.radio:after, label.check:after {
 
 
 /*   HOME   */
-.tile {
+/* .tile {
     margin: var(--pad);
     padding: var(--pad);
 
@@ -447,8 +448,50 @@ label.radio:after, label.check:after {
 
     font-size: 5vw;
 }
+ */
 
+#home-main {
+    background-color: var(--primary-back);
+    flex-flow: wrap;
+    align-content: center;
+    height: 100vh;
+    padding-top: 2vh;
+    padding-left: 2vw;
+}
+
+.home-tile {
+    width: calc(50vw - 2vw*2);
+    height: calc(50vh - 2vh*2 - 1vw);;
+
+    margin: 1vw;
+
+    background-color: var(--primary-col);
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.home-tile p {
+    font-size: 1.1em;
+
+    margin: 0 0 1.8vw 3.5vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    color: var(--dark);
+}
+
+.home-tile span {
+    font-size: 6em;
+    color: var(--dark);
+}
 /*   HOME   */
+
+
+
 
 
 /*   NEWS   */
@@ -566,46 +609,43 @@ label.radio:after, label.check:after {
     content:"";
     display:block;
 }
+
+
 /*   NEWS   */
 
+/*  CONTACTS  */
+
+#contacts, #contact-us {
+    margin: 5vw;
+    padding: 5vw;
+    background-color: var(--primary-back);
+    align-items: center;
+}
+
+.img {
+    width: 40vw;
+    height: 10vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#address, #web, #phone {
+    flex-direction: row;
+}
+
+
 
 /*  CONTACTS  */
 
-.logo {
-    position: relative;
+
+.btn-back {
+    height: 5vh;
+    background-color: rgba(127, 236, 31, 0.6);
+    color: var(--dark);
+    align-items: center;
 }
 
-#logo {
-    position: absolute;
-    left: calc(50% - 35vw / 2);
-    top: 1vh;
-    width: 35vw;
-
+.btn-back span {
+    color: var(--dark);
+    margin-left: 2vw;
 }
-
-.link {
-    color: var(--primary-col);
-}
-
-.link:hover {
-    color: var(--primary-dark);
-    text-decoration: none;
-}
-
-#info {
-    margin-top: 10vh;
-    padding: var(--pad);
-}
-
-#map {
-    overflow: hidden;
-    width: 100%;
-    height: 40vw;
-}
-
-#map img {
-    margin-left: -60vw;
-    margin-top: -40vh;
-}
-
-/*  CONTACTS  */

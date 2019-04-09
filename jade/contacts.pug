@@ -9,29 +9,59 @@ html(lang='en')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='styles.css')
   body
-    .container-fluid
-      .row
-        .col.logo
-          img#logo(src='img/logo.png')
-      .row
-        .col-6
-          #info.container
-            .row
-              .col-2.addressIcon
-                i.material-icons  place 
-              .col-10.address
-                p  Sady Pětatřicátníků 173/31
-                p  Plzeň 301 00 
-            .row
-              .col-2.webIcon
-                i.material-icons  language 
-              .col-10.website
-                a.link(href='http://skeleton.cz')  skeleton.cz 
-            .row
-              .col-2.phoneIcon
-                i.material-icons  phone 
-              .col-10.phoneNum
-                p  377 477 731
-        .col-6
-          #map.container
-            img(src='img/propmap.png')
+    //- .container-fluid
+    //-   .row
+    //-     .col.logo
+    //-       img#logo(src='img/logo.png')
+    //-   .row
+    //-     .col-6
+    //-       #info.container
+    //-         .row
+    //-           .col-2.addressIcon
+    //-             i.material-icons  place 
+    //-           .col-10.address
+    //-             p  Sady Pětatřicátníků 173/31
+    //-             p  Plzeň 301 00 
+    //-         .row
+    //-           .col-2.webIcon
+    //-             i.material-icons  language 
+    //-           .col-10.website
+    //-             a.link(href='http://skeleton.cz')  skeleton.cz 
+    //-         .row
+    //-           .col-2.phoneIcon
+    //-             i.material-icons  phone 
+    //-           .col-10.phoneNum
+    //-             p  377 477 731
+    //-     .col-6
+    //-       #map.container
+    //-         img(src='img/propmap.png')
+
+    .flex-container#contacts
+      .img(style="background-image: url(img/logo.png)")
+      
+      .flex-container#address
+        span.material-icons place
+        p  Sady Pětatřicátníků 173/31
+        p  Plzeň 301 00 
+      .flex-container#web
+        span.material-icons language
+        a.link(href="http://skeleton.cz") skeleton.cz
+      .flex-container#phone
+        span.material-icons phone
+        p 377 477 731
+
+    .btn-container.btn-back
+      a(href="home")
+        span.material-icons arrow_back
+
+    .flex-container#contact-us
+      p Contact us
+      form
+        label(for="name") Name
+        input(type="text" placeholder="Name" id="name")
+
+        label(for="email") Email
+        input(type="text" placeholder="Email" id="email" required)
+        
+        label(for="message") Your message
+        textarea#message

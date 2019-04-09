@@ -5,7 +5,7 @@ html(lang='en')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-    link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Lato&amp;subset=latin-ext" rel="stylesheet")
     
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
 
@@ -18,26 +18,23 @@ html(lang='en')
 
 
   body
-    .container-fluid
-      .row
-        .col-6
-          a(href='menu')
-            .btn.btn-block.tile
-              em.material-icons  restaurant_menu 
-              p.buttonDesc  Menu 
-        .col-6
-          a(href='news')
-            .btn.btn-block.tile
-              em.material-icons  date_range 
-              p.buttonDesc  News 
-      .row
-        .col-6
-          a(href='order')
-            .btn.btn-block.tile
-              em.material-icons  shopping_cart 
-              p.buttonDesc  Order 
-        .col-6
-          a(href='contacts')
-            .btn.btn-block.tile
-              em.material-icons  phone 
-              p.buttonDesc  Contacts 
+    .flex-container#home-main
+      a(href='custompage://69/Menu')
+        .flex-container.home-tile
+          span.material-icons  restaurant_menu 
+          p.buttonDesc  Menu 
+      a(href='custompage://71/News')
+        .flex-container.home-tile
+          span.material-icons  date_range
+          p.buttonDesc  News 
+
+      a(href='custompage://68/Order')
+        .flex-container.home-tile
+          span.material-icons  shopping_cart
+          p.buttonDesc  Order
+
+      a(href='')
+        .flex-container.home-tile
+          span.material-icons  phone
+          p.buttonDesc  Contacts
+
