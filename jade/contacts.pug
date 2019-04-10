@@ -4,64 +4,67 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
+
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-    link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&subset=latin-ext', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700&amp;subset=latin-ext" rel="stylesheet")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='styles.css')
+  
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+ 
   body
-    //- .container-fluid
-    //-   .row
-    //-     .col.logo
-    //-       img#logo(src='img/logo.png')
-    //-   .row
-    //-     .col-6
-    //-       #info.container
-    //-         .row
-    //-           .col-2.addressIcon
-    //-             i.material-icons  place 
-    //-           .col-10.address
-    //-             p  Sady Pětatřicátníků 173/31
-    //-             p  Plzeň 301 00 
-    //-         .row
-    //-           .col-2.webIcon
-    //-             i.material-icons  language 
-    //-           .col-10.website
-    //-             a.link(href='http://skeleton.cz')  skeleton.cz 
-    //-         .row
-    //-           .col-2.phoneIcon
-    //-             i.material-icons  phone 
-    //-           .col-10.phoneNum
-    //-             p  377 477 731
-    //-     .col-6
-    //-       #map.container
-    //-         img(src='img/propmap.png')
 
     .flex-container#contacts
       .img(style="background-image: url(img/logo.png)")
       
-      .flex-container#address
-        span.material-icons place
-        p  Sady Pětatřicátníků 173/31
-        p  Plzeň 301 00 
-      .flex-container#web
-        span.material-icons language
-        a.link(href="http://skeleton.cz") skeleton.cz
-      .flex-container#phone
-        span.material-icons phone
-        p 377 477 731
+      .flex-container#about-us      
+        .flex-container#address
+          span.material-icons place
+          p  Sady Pětatřicátníků 173/31
+        .flex-container#city
+          p  Plzeň 301 00 
+        .flex-container#web
+          span.material-icons language
+          a.link(href="http://skeleton.cz") skeleton.cz
+        .flex-container#phone
+          span.material-icons phone
+          p 377 477 731
+
 
     .btn-container.btn-back
       a(href="home")
         span.material-icons arrow_back
 
+
     .flex-container#contact-us
       p Contact us
-      form
-        label(for="name") Name
+      form#contactform
         input(type="text" placeholder="Name" id="name")
 
-        label(for="email") Email
         input(type="text" placeholder="Email" id="email" required)
         
-        label(for="message") Your message
-        textarea#message
+        textarea#message(placeholder="Your message" required)
+
+        button#send(disabled type='submit' data-toggle='modal' data-target='#thanks')
+          span.material-icons email
+
+    #thanks.modal
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h1.modal-title Thank you
+            button(type="button" data-dismiss="modal") &times
+
+          .modal-body
+            p We will reply to your message as soon as we can
+
+          .modal-footer
+            button(type="button" data-dismiss="modal") Close
+
+
+  script.
+    var email = document.getElementById("email");
+    var message = document.getElementById("message");
+    var sendbtn = document.getElementById("send");
