@@ -8,7 +8,6 @@ html(lang='en')
     link(href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700&amp;subset=latin-ext" rel="stylesheet")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
 
-    link(rel='stylesheet', href='styles.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
@@ -16,24 +15,116 @@ html(lang='en')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
 
 
+  style.
+    :root {
+        --accent-col: #316f07;
+        --primary-col: #7DEC1F;
+        --primary-dark: #56A315;
+
+        --separator: #999999;
+
+        --secondary-back: #fcfad7;
+        --primary-text: #fcfad7;
+        --secondary-back-text: #343342;
+
+        --logo-back: #ffffff;
+        --primary-back: rgb(233, 232, 198);
+        --primary-back-text: #757575;
+
+        --pad: 4px;
+        --large-pad: 8px;
+
+        --but-size: 8vw;
+
+        --tile-ht: 7em;
+        --intile-ht: calc(var(--tile-ht) - var(--pad)*4);
+
+        --dark: #1c1c24;
+        --darkish: #343342;
+        font-family: "Open Sans";
+
+    }
+    body { 
+        background-color: var(--darkish); 
+        color: var(--primary-back-text);
+        margin: 0;
+        box-sizing: border-box;  
+    }
+    *, *::before, *::after { 
+        font-family: "Open Sans", sans-serif;
+    }
+
+
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+
+      font-size: 1rem;
+    }
+
+    #home-main {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        align-content: center;
+
+        background-color: var(--darkish);
+        height: 100vh;
+        padding-top: 2vh;
+        padding-left: 2vw;
+    }
+
+    .home-tile {
+        width: calc(50vw - 2vw*2);
+        height: calc(40vh - 2vh*2 - 1vw);;
+
+        margin: 1vw;
+
+        background-color: var(--primary-back);
+
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+    }
+
+    .home-tile p {
+        font-size: 2em;
+        line-height: 1em;
+
+        margin: 0 0 -0.3em -0.15em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        font-family: 'Open Sans Condensed';
+        color: var(--darkish);
+    }
+
+    .home-tile span {
+        font-size: 6em;
+        color: var(--primary-col);
+    }
+    /*   HOME   */
+
+
   body
     .flex-container#home-main
       a(href='custompage://69/Menu')
         .flex-container.home-tile
           span.material-icons  restaurant_menu 
-          p.buttonDesc  Menu 
+          p Menu 
       a(href='custompage://71/News')
         .flex-container.home-tile
           span.material-icons  date_range
-          p.buttonDesc  News 
+          p News 
 
       a(href='custompage://68/Order')
         .flex-container.home-tile
           span.material-icons  shopping_cart
-          p.buttonDesc  Order
+          p Order
 
       a(href='')
         .flex-container.home-tile
           span.material-icons  phone
-          p.buttonDesc  Contacts
-
+          p Contacts
