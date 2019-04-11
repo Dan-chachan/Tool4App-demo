@@ -24,12 +24,12 @@ html(lang='en')
 
         --separator: #999999;
 
-        --secondary-back: #fcfad7;
+        --secondary-back: #FFFFFF;
         --primary-text: #fcfad7;
         --secondary-back-text: #343342;
 
         --logo-back: #ffffff;
-        --primary-back: rgb(233, 232, 198);
+        --primary-back: #E2E0DE;
         --primary-back-text: #757575;
 
         --pad: 4px;
@@ -53,12 +53,16 @@ html(lang='en')
         margin: 0;
         box-sizing: border-box;
         
-        
+        padding-bottom: 8vh;
     }
 
     *, *::before, *::after { 
         font-family: "Open Sans", sans-serif;
     } 
+
+    .flex-container {
+      display: flex;
+    }
 
     .btn-container {
         display: flex;
@@ -108,15 +112,13 @@ html(lang='en')
         border: 0;
         border-radius: 3px;
 
-        line-height: 2rem;
+        vline-height: 2rem;
 
         display: flex;
         justify-content: space-between;
 
         border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-
-        
+        border-bottom-left-radius: 0px;  
     }
 
     .daybtn em, .daybtn p {
@@ -142,10 +144,6 @@ html(lang='en')
         align-items: stretch;
     }
 
-    /* TODO */
-    #tue-food {
-      margin-bottom: 8vh;
-    }
 
     .amount-container {
       width: 8vw;
@@ -165,7 +163,7 @@ html(lang='en')
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        line-height: 1em;
+        vline-height: 1em;
         padding-top: calc((var(--size) - 0.8em) / 2);
 
         z-index: 990;
@@ -216,7 +214,7 @@ html(lang='en')
     }
     .foodname, .foodprice {
         font-size: 1.1em;
-        line-height: 1.2em;
+        vline-height: 1.2em;
         font-weight: bold;
         color: var(--darkish);
     }
@@ -238,6 +236,12 @@ html(lang='en')
         height: 100%;
     }
 
+    .vline {
+      height: 100%;
+      width: 1px;
+
+      background-color: var(--separator);
+    }
 
     #foodback, #foodreset {
       width: 15%;
@@ -248,24 +252,75 @@ html(lang='en')
       font-size: 0.8em;
     }
 
-
-
     #foodsubmit, #foodreset {
       display: none;
     }
 
+    #foodpick {
+      display: none;
+    }
+
+    .show {
+      display: block !important;
+    }
 
 
     #summary {
-        display: none;
-        background-color: var(--secondary-back);
-        padding: 5vw;
-        font-size: 1rem;
+      display: none;
+
+      padding: 3vw;
+      margin: .6rem;
+      font-size: 1rem;
+    }
+
+    #summary h4 {
+      font-weight: bold;
+      margin: ;
+      
+    }
+
+    #sum-container, #prices-container {
+      flex-direction: column;
+      background-color: var(--secondary-back);
+      padding: 1.5em;
+    }
+
+    #prices-container {
+      background-color: var(--primary-back);
+    }
+
+    .sum-item {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .hline {
+      width: 100%;
+      height:2px;
+      background-color: var(--separator);
+      margin: 2vh 0 2vh 0;
+    }
+
+    #totalprice-container {
+      color: var(--darkish);
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .cost-item {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    #totalprice {
+      color: var(--primary-col);
     }
 
 
   body
-    .flex-container.show#foodpick
+    div.show#foodpick
       
       // MONDAY
       button.mo-button.daybtn(data-toggle="collapse", data-target="#mo-food")
@@ -286,7 +341,7 @@ html(lang='en')
         each food in foods
           .foodTile
             .btn-group-vertical.amount-container
-              button.btn.add-food(onclick="addFood()")
+              button.btn.add-food()
                 em.material-icons  add
 
               .amountBox 0
@@ -319,7 +374,7 @@ html(lang='en')
         each food in foods
           .foodTile
             .btn-group-vertical.amount-container
-              button.btn.add-food(onclick="addFood()")
+              button.btn.add-food()
                 em.material-icons  add
 
               .amountBox 0
@@ -334,16 +389,29 @@ html(lang='en')
               img(src='')
 
 
-    .flex-container#summary 
-      p Your order
+    div#summary  
       .flex-container#sum-container
+        h4 Your order
 
+      .flex-container#prices-container
+        .cost-item.flex-container
+          p Packaging
+          p#pack-price
+        .cost-item.flex-container
+          p Transport
+          p#trans-price
+        .cost-item.flex-container
+          p Items
+          p#food-price
+        .hline
 
   .btn-container#foodbtn-container
     button#foodback(href='menu.html')
       span.material-icons arrow_back
+    .vline
     button#foodsubmit(href="summary.html")
       | Order
+    .vline
     button#foodreset(href='menu.html')
       span.material-icons  restore
 
@@ -351,17 +419,15 @@ script.
   var totalPrice = 0;
   var totalAmount = 0;
   var orderbtn = document.getElementById("foodsubmit");
-  var orderPanel = orderbtn.parentNode.childNodes;
-  var submit = orderPanel[1];
-  var reset = orderPanel[2];
+  //var orderPanel = orderbtn.parentNode.childNodes;
+  var btnReset = document.getElementById("foodreset")
 
   var foods = [];
 
   var food_amounts = document.querySelectorAll('.amountBox');
-    
+
 
   food_amounts.forEach(function(amountElem) {
-    console.log("inside for")
     var btnMore = amountElem.previousSibling;
     var btnLess = amountElem.nextSibling;
     
@@ -376,7 +442,9 @@ script.
       totalAmount += 1;
       var item = (totalAmount == 1) ? "item" : "items";
       
-      orderPanel.style.display = "flex";
+      //orderPanel.style.display = "flex";
+      orderbtn.style.display = "block";
+      btnReset.style.display = "block";
       orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
     })
 
@@ -396,7 +464,9 @@ script.
 
       var item = (totalAmount == 1) ? "item" : "items";
       if (totalAmount <= 0 && totalPrice <= 0) {
-        orderPanel.style.display = "none";
+        //orderPanel.style.display = "none";
+        orderbtn.style.display = "none";
+        btnReset.style.display = "none";
       }
       else {
         orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
@@ -404,30 +474,13 @@ script.
     })
   })
 
-  // TEST
-  function addFood() {
-      var oldnum = amountElem.innerHTML;
-      var newnum = parseInt(oldnum) + 1;
-      amountElem.innerHTML = newnum;
 
-      var price = getPrice(amountElem);
-      totalPrice += price;
-      totalAmount += 1;
-      var item = (totalAmount == 1) ? "item" : "items";
-      
-      //orderPanel.style.display = "flex";
-      
-      submit.style.display = "block";
-      reset.style.display = "block";
-      orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
-  }
-    // RESET
-  var btnReset = document.getElementById("foodreset")
+  // RESET
   btnReset.addEventListener("click", function() {
     totalPrice = 0;
     totalAmount = 0;
-    submit.style.display = "none";
-    reset.style.display = "none";
+    orderbtn.style.display = "none";
+    btnReset.style.display = "none";
 
     food_amounts.forEach(function(amountElem) {
       amountElem.innerHTML = "0";
@@ -451,6 +504,7 @@ script.
         var foodName = amountElem.parentNode.nextSibling.firstChild;
         var food = [foodName.innerHTML , price];
         foods.push(food);
+
       }
     })
     documentFoods(foods);
@@ -460,23 +514,59 @@ script.
   function documentFoods(foods) {
     var node = document.getElementById("sum-container");
 
+    var totalprice = 0;
+
+    // displaying the ordered items
     foods.forEach(function(food) {
-      var row = document.createElement("div");
-      row.className = "row";
+      var container = document.createElement("div");
+      container.classList.add("sum-item");
+      container.classList.add("flex-container");
       
-      var foodname = document.createElement("div");
-      foodname.className = "col-9";
+      var foodname = document.createElement("p");
       foodname.innerHTML = food[0];
+      foodname.id = "foodname";
       console.log(food[0]);
 
-      var foodprice = document.createElement("div");
-      foodprice.className = "col-3";
-      foodprice.innerHTML = food[1];
+      var foodprice = document.createElement("p");
+      foodprice.innerHTML = food[1] + " Kč";
+      foodprice.id = "foodprice";
 
-      node.appendChild(row);
-      row.appendChild(foodname);
-      row.appendChild(foodprice);
-    })  
+      
+      container.appendChild(foodname);
+      container.appendChild(foodprice);
+      node.appendChild(container);
+
+      totalprice += food[1];
+    })
+
+    // additional prices
+    packprice = document.getElementById("pack-price");
+    price = foods.length * 10;
+    packprice.innerHTML = price + " Kč";
+
+    transprice = document.getElementById("trans-price");
+    transprice.innerHTML = 40 + " Kč";
+
+    foodprice = document.getElementById("food-price");
+    foodprice.innerHTML = totalprice + " Kč";
+
+    // TOTAL PRICE
+    container = document.createElement("div");
+    container.classList.add("flex-container");
+    container.id = "totalprice-container";
+
+    text = document.createElement("p");
+    text.innerHTML = "Total price";
+    total = document.createElement("p");
+    total.id = "totalprice";
+    total.innerHTML = (totalprice + price + 40) + " Kč";
+
+    container.appendChild(text);
+    container.appendChild(total);
+
+    node = document.getElementById("prices-container");
+    node.appendChild(container);
+
   }
 
   function switchView(home=false) {
