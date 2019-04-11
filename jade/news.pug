@@ -23,12 +23,12 @@ html(lang='en')
 
         --separator: #999999;
 
-        --secondary-back: #fcfad7;
+        --secondary-back: #ffffff;
         --primary-text: #fcfad7;
         --secondary-back-text: #343342;
 
         --logo-back: #ffffff;
-        --primary-back: rgb(233, 232, 198);
+        --primary-back: #E2E0DE;
         --primary-back-text: #757575;
 
         --pad: 4px;
@@ -52,6 +52,8 @@ html(lang='en')
         margin: 0;
         box-sizing: border-box;
         padding-bottom: 8vh;
+
+        font-size: 16px;
         
     }
 
@@ -71,26 +73,28 @@ html(lang='en')
         z-index: 999;
         
         width: 100vw;
-        height: 7vh;
+        height: 2rem;
 
         position: fixed;
         bottom: 0;
         left: 0;
         background-color: var(--dark);
 
+        justify-items: flex-start;
         align-items: center;
         padding-left: 2vw;
     }
 
     .btn-container span {
-        font-size: 1.6em;
+        display: flex;
+        font-size: 1.4em;
         border: 0;
         background-color: var(--dark);
         color: var(--primary-col);
     }
       
     .newsTile1 {
-        background-color: var(--primary-back);
+        background-color: var(--secondary-back);
         width: calc(100% - var(--large-pad) * 2);
         margin: 1em var(--large-pad);
     }

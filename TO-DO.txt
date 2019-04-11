@@ -1,12 +1,15 @@
 Tool4App problémy
     javascripty vůbec nefungujou
     TineMCE
-        odstraňuje <a>, <i>, možná další tagy
+        odstraňuje <a>(jenom někdy?), <i>, možná další tagy
         menu - přesouvá <p> mimo <button>
         odstraňuje onclick
     kam dát obrázky / ostatní soubory?
-    order ikonka se mění na jinou ikonku
+    order ikonka se mění na jinou ikonku, contacts není vůbec
 
 Demo problémy
     google maps API
     po otevření mobilní klávesnice se všechno smrskne
+    contacts - popup nefunguje
+
+    btn-container height: 2em;

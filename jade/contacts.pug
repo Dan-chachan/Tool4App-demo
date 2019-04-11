@@ -22,12 +22,12 @@ html(lang='en')
 
       --separator: #999999;
 
-      --secondary-back: #fcfad7;
+      --secondary-back: #ffffff;
       --primary-text: #fcfad7;
       --secondary-back-text: #343342;
 
       --logo-back: #ffffff;
-      --primary-back: rgb(233, 232, 198);
+      --primary-back: #E2E0DE;
       --primary-back-text: #757575;
 
       --pad: 4px;
@@ -49,6 +49,7 @@ html(lang='en')
         color: var(--primary-back-text);
         margin: 0;
         box-sizing: border-box; 
+        padding-bottom: 8vh;
     }
 
     *, *::before, *::after { 
@@ -64,21 +65,22 @@ html(lang='en')
     #contacts, #contact-us {
         margin: 5vw;
         padding: 5vw;
-        background-color: var(--primary-back);
+        background-color: var(--secondary-back);
         align-items: center;
-        height: calc(50vh - 5vw - 5vh);
+
     }
 
     .img {
         width: 30vw;
-        height: 10vh;
+        height: 3rem;
         background-size: contain;
         background-repeat: no-repeat;
     }
 
     #about-us {
-        margin-top: 2vh;
+        margin-top: 1em;
         justify-content: flex-start;
+        width: 70vw;
     }
 
     #city {
@@ -92,7 +94,7 @@ html(lang='en')
 
     #address, #web, #phone {
         flex-direction: row;
-        width: 60vw;
+        width: 100%;
     }
 
     #address p {
@@ -114,7 +116,7 @@ html(lang='en')
     }
 
     #contact-us p {
-        margin-top: 5vh;
+        margin-top: 2vh;
         font-weight: bold;
     }
 
@@ -123,7 +125,7 @@ html(lang='en')
     }
 
     #contactform input {
-        height: 5vh;
+        height: 1.8em;
     }
 
     #contactform input:focus, #contactform textarea:focus {
@@ -145,13 +147,13 @@ html(lang='en')
         border-radius: 3px;
 
         margin-left: calc(50% - 20vw);
-        margin-top: 5vh;
-        margin-bottom: 5vh;
+        margin-top: 1em;
+        margin-bottom: 1em;
 
         font-size: 1.2em;
       
         width: 40vw;
-        height: 5vh;
+        height: 1.8em;
 
         justify-content: center;
         display: flex;
@@ -163,19 +165,21 @@ html(lang='en')
         z-index: 999;
         
         width: 100vw;
-        height: 7vh;
+        height: 2rem;
 
         position: fixed;
         bottom: 0;
         left: 0;
         background-color: var(--dark);
 
+        justify-items: flex-start;
         align-items: center;
         padding-left: 2vw;
     }
 
     .btn-container span {
-        font-size: 1.6em;
+        display: flex;
+        font-size: 1.4em;
         border: 0;
         background-color: var(--dark);
         color: var(--primary-col);
@@ -204,7 +208,7 @@ html(lang='en')
 
 
     .btn-container
-      a(href="home")
+      a(href="custompage://67/Home")
         span.material-icons arrow_back
 
     .flex-container#contact-us
