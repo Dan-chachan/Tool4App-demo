@@ -72,7 +72,7 @@ html(lang='en')
         z-index: 999;
         
         width: 100vw;
-        height: 2rem;
+        height: 3rem;
 
         position: fixed;
         bottom: 0;
@@ -137,16 +137,28 @@ html(lang='en')
         position: relative;
     }
 
-  body
+body
+    .newsTile1
+      .img(style="background-image: url('/Tool4App/Tool4AppPortal/api/document/get/?ID=62&action=view');")
+      .text
+        h1 Our reconstruction is done
+        p After a month of hard work, we have finally completed the renovation of our restaurant, and we are opening on April 15th!
 
-    each val in [1,2,3,4,5]
-      .newsTile1
-        .img(style="background-image: url(/img/news.jpg);")
-        .text
-          h1 New thing
-          p Ut verear feugait nec. Habeo iriure ad pri, ad pri duis aliquando, sea movet vivendo et. In aliquid voluptua tractatos mei, sit ea tale eruditi appareat. Est et nonumes temporibus, ut has solum noluisse. Convenire imperdiet no duo, minim errem vim ea.
-        // button Read more
+    .newsTile1
+      .img(style="background-image: url('/Tool4App/Tool4AppPortal/api/document/get/?ID=64&action=view');")
+      .text
+        h1 Michelin chef duel
+        p This year, for the ninth time, a popular duel of Michelin chefs will be held, which will be Massimiliano Musso and Alan Geaam. Both chefs prepare the same 5-course menu, which will be evaluated by the guests present and the winning menu will then be included in the restaurant's permanent menu for some time. Mr. Musso is a supporter of Italian cuisine, he is fond of local ingredients and is also renowned for the use of edible flowers, while Mr. Geaam presents French cuisine, although his dishes always combine flavors from all over the world.
 
+
+    .newsTile1
+      .img(style="background-image: url('/Tool4App/Tool4AppPortal/api/document/get/?ID=65&action=view');")
+      .text
+        h1 We are hosting a wine degustation
+        p We have organized two tasting evenings in April here in our restaurant. The first one, "When the East meets the West" will take place on April 9th. The joint menu of four leading chefs from Bistro Kaprova and SaSaZu combines traditional Indonesian cuisine with European elements. European wines and exotic cocktails will complement the menu.
+          | The second night of April 17 will be in the spirit of the Mediterranean and Italian wines. Taste the salad from the dishes
+          | wild herbs with roasted goat cheese in filo pastry and dried dates, BBQ beef brisket with smoked potato purée or cod with buckwheat and pickled lemon sauce and much more.
+  
     .btn-container
-      a(href="home")#foodback
+      a(href="custompage://67/Home")#foodback
         span.material-icons arrow_back

@@ -86,7 +86,6 @@ html(lang='en')
 
     #city {
         padding-left: 1.9em;
-        margin-bottom: 1vh;
     }
 
     #city p {
@@ -96,6 +95,10 @@ html(lang='en')
     #address, #web, #phone {
         flex-direction: row;
         width: 100%;
+    }
+
+    #web, #phone {
+      margin-top: 0.4em;
     }
 
     #address p {
@@ -166,7 +169,7 @@ html(lang='en')
         z-index: 999;
         
         width: 100vw;
-        height: 2rem;
+        height: 3rem;
 
         position: fixed;
         bottom: 0;
@@ -210,13 +213,37 @@ html(lang='en')
       font-size: 0.9em;
     }
 
+    #gmap {
+      width: 100%;
+      height: 20vh;
+    }
 
+    #alert {
+      display: none;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 4rem;
+      background-color: var(--dark);
+      color: var(--primary-col);
+      padding: 1rem;
+    }
+    #alert p {
+      margin: 0px;
+    }
+    #alert span {
+      cursor: pointer;
+    }
 
 
   body
+    #alert
+      p#alert-text Thank you! We will reply as soon as we can.
+      span.material-icons(onclick="this.parentElement.style.display='none';") close
 
     .flex-container#contacts
-      .img(style="background-image: url(img/logo.png)")
+      .img(style="background-image: url('https://test.skeleton.cz/Tool4App/Tool4AppPortal/api/document/get/?ID=61&action=view')")
       
       .flex-container#about-us      
         .flex-container#address
@@ -230,7 +257,8 @@ html(lang='en')
         .flex-container#phone
           span.material-icons phone
           p 377 477 731
-
+        
+      div#gmap
 
     .btn-container
       a(href="custompage://67/Home")
@@ -238,32 +266,46 @@ html(lang='en')
 
     .flex-container#contact-us
       p Contact us
-      form#contactform
+      form#contactform(action="#" method="get")
         input(type="text" placeholder="Name" id="name")
 
         input(type="text" placeholder="Email" id="email" required)
         
         textarea#message(placeholder="Your message" required)
 
-        button#send(type='submit' data-toggle='modal' data-target='#thanks')
+        button#send(onclick="showAlert()")
           span.material-icons email
 
-    #thanks.modal
-      .modal-dialog.modal-sm
-        .modal-content
-          .modal-header
-            h4.modal-title Thank you
-            button#smallbtn(type="button" data-dismiss="modal")
-              span.material-icons close
 
-          .modal-body
-            p We will reply to your message as soon as we can.
+script.
 
-          .modal-footer
-            button#largebtn(type="button" data-dismiss="modal") Close
+  function showAlert() {
+    document.getElementById("alert").style.display = "flex";
+  }
+
+  function validate() {
+    var mail = document.getElementById("email").value;
+    var text = document.getElementById("message").value;
 
 
-  script.
-    var email = document.getElementById("email");
-    var message = document.getElementById("message");
-    var sendbtn = document.getElementById("send");
+    if (mail.length != 0 && text.length != 0) {
+      document.getElementById("alert").style.display = "flex";
+    }
+
+    else {
+      console.log("nope")
+      return false;
+    }
+  }
+
+
+
+  function initMap() {
+    var skeleton = {lat: 49.7493334, lng: 13.3733772};
+
+    var map = new google.maps.Map(
+      document.getElementById('gmap'), {zoom: 19, center: skeleton});
+    var marker = new google.maps.Marker({position: skeleton, map: map})
+  }
+
+script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi5negu8eiT0dnFK-DbeTzuUTopwS8dfM&callback=initMap")

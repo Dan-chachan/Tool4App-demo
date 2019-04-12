@@ -4,12 +4,23 @@ Tool4App problémy
         stránka menu - přesouvá <p> mimo <button>
         odstraňuje onclick
         javascript eventlistener nefunguje
-    kam dát obrázky / ostatní soubory?
-    order ikonka se mění na jinou ikonku, contacts ikonka není vůbec
-
+    
 Demo nedostatky
     google maps API
     prolinkovat všechno
-    home je možná moc kreativní
-    menu - collapse animace je ošklivá
     přidat obsah (asi až nakonec)
+
+
+
+custompage://69/Menu
+custompage://71/News
+custompage://68/Order
+custompage://46/Contacts
+custompage://67/Home
+
+---DONE---|---NOT DONE---
+Home      |
+News      |
+          |Menu
+  Contacts|
+          |Order
