@@ -75,12 +75,13 @@ html(lang='en')
         height: 3rem;
         background-size: contain;
         background-repeat: no-repeat;
+        background-position: center;
     }
 
     #about-us {
         margin-top: 1em;
         justify-content: flex-start;
-        width: 70vw;
+        max-width: 70vw;
     }
 
     #city {
@@ -143,7 +144,7 @@ html(lang='en')
     #contactform button {
         border: 0;
         background-color: var(--darkish);
-        color: var(--primary-text);
+        color: var(--primary-col);
         border-radius: 3px;
 
         margin-left: calc(50% - 20vw);
@@ -185,6 +186,30 @@ html(lang='en')
         color: var(--primary-col);
     }
 
+    #thanks button {
+      border-radius: 3px;
+      border: 0px;
+      background-color: var(--darkish);
+      color: var(--primary-col);
+
+    }
+
+    #largebtn {
+      padding: 0.5em;
+    }
+
+    #smallbtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2em;
+      height: 2em;
+    }
+
+    #smallbtn span {
+      font-size: 0.9em;
+    }
+
 
 
 
@@ -220,21 +245,22 @@ html(lang='en')
         
         textarea#message(placeholder="Your message" required)
 
-        button#send(disabled type='submit' data-toggle='modal' data-target='#thanks')
+        button#send(type='submit' data-toggle='modal' data-target='#thanks')
           span.material-icons email
 
     #thanks.modal
-      .modal-dialog
+      .modal-dialog.modal-sm
         .modal-content
           .modal-header
-            h1.modal-title Thank you
-            button(type="button" data-dismiss="modal") &times
+            h4.modal-title Thank you
+            button#smallbtn(type="button" data-dismiss="modal")
+              span.material-icons close
 
           .modal-body
-            p We will reply to your message as soon as we can
+            p We will reply to your message as soon as we can.
 
           .modal-footer
-            button(type="button" data-dismiss="modal") Close
+            button#largebtn(type="button" data-dismiss="modal") Close
 
 
   script.

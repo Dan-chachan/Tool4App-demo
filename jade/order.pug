@@ -201,12 +201,39 @@ html(lang='en')
         color: var(--primary-col);
     }
 
-    #order-back {
+    #back {
         margin-right: 5px;
-        width: 20%;
+        width: 20vw;
     }
-    #order-submit {
-        width: 80%;
+    #submit {
+        width: 80vw;
+        background-color: transparent;
+        color: var(--primary-col);
+        border: 0px;
+        font-weight: bold;
+    }
+
+    #thanks button {
+      border-radius: 3px;
+      border: 0px;
+      background-color: var(--darkish);
+      color: var(--primary-col);
+    }
+
+    #largebtn {
+      padding: 0.5em;
+    }
+
+    #smallbtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2em;
+      height: 2em;
+    }
+
+    #smallbtn span {
+      font-size: 0.9em;
     }
   
   body
@@ -238,5 +265,23 @@ html(lang='en')
             
 
     .btn-container
-      a(href="home")
-        span.material-icons arrow_back
+        a(href="home")
+            span#back.material-icons arrow_back
+        button#submit(type="submit" data-toggle="modal" data-target="#thanks") Finish order
+
+
+    #thanks.modal
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            h4.modal-title Thank you
+            button#smallbtn(type="button" data-dismiss="modal")
+              span.material-icons close
+
+          .modal-body
+            p Your order is being processed.
+
+          .modal-footer
+            button#largebtn(type="button" data-dismiss="modal") Close
+
+    

@@ -1,27 +1,15 @@
 Tool4App problémy
-    javascripty vůbec nefungujou
-    
-    TineMCE
+    TinyMCE
         odstraňuje <a>(jenom někdy?), <i>, možná další tagy
-        menu - přesouvá <p> mimo <button>
+        stránka menu - přesouvá <p> mimo <button>
         odstraňuje onclick
-    
+        javascript eventlistener nefunguje
     kam dát obrázky / ostatní soubory?
     order ikonka se mění na jinou ikonku, contacts ikonka není vůbec
 
-Demo problémy
+Demo nedostatky
     google maps API
-    contacts - popup nefunguje
-    btn-container
     prolinkovat všechno
     home je možná moc kreativní
     menu - collapse animace je ošklivá
-
-
-            Pages
-    ---DONE---|--NOT DONE--
-    Home      |
-              | Menu
-    Order     |
-    News      |  
-    Contacts  |
+    přidat obsah (asi až nakonec)

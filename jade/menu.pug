@@ -61,12 +61,13 @@ html(lang='en')
     } 
 
     .flex-container {
-      display: flex;
+      /* display: flex; */
     }
 
     .btn-container {
         display: flex;
         flex-direction: row;
+        align-items: center; /* vert align */
         z-index: 999;
 
         width: 100vw;
@@ -109,30 +110,26 @@ html(lang='en')
         z-index: 900;
 
         margin: 1rem .6em 0 .6em;
-
         width: calc(100% - 1.2em);
-        height: 2rem;
+        height: 3rem;
 
         border: 0;
         border-radius: 3px;
 
-        vline-height: 2rem;
-
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* shunt to sides */
+        align-items: center; /* vertical text align */
 
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 0px;  
     }
 
     .daybtn em, .daybtn p {
-        font-size: 1rem;
-        top: 0;
-        margin-bottom: 0;
+        font-size: 1.6rem;
+        margin: 0;
     }
 
     .daybtn em {
-        margin: 0.5rem;
     }
 
     .foodTile {
@@ -167,17 +164,18 @@ html(lang='en')
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        vline-height: 1em;
+        line-height: 1em;
         padding-top: calc((var(--size) - 0.8em) / 2);
 
         z-index: 990;
-        background-color: var(--primary-back);
+        background-color: var(--secondary-back);
         border-radius: 9999px;
         font-weight: bold;
     }
 
     .add-food em, .remove-food em {
         font-size: 1rem;
+        font-weight: bold;
 
         position: absolute;
 
@@ -241,10 +239,10 @@ html(lang='en')
     }
 
     .vline {
-      height: 100%;
-      width: 1px;
-
-      background-color: var(--darkish);
+        margin-top: 0%;
+        height: 60%;
+        width: 1px;
+        background-color: var(--primary-col);
     }
 
     #foodback, #foodreset {
@@ -256,8 +254,11 @@ html(lang='en')
       font-size: 0.8em;
     }
 
-    #foodsubmit, #foodreset {
+    #foodsubmit {
       display: none;
+    }
+    #foodreset {
+      opacity: 0;
     }
 
     #foodpick {
@@ -345,7 +346,7 @@ html(lang='en')
         each food in foods
           .foodTile
             .btn-group-vertical.amount-container
-              button.btn.add-food()
+              button.btn.add-food
                 em.material-icons  add
 
               .amountBox 0
@@ -448,7 +449,7 @@ script.
       
       //orderPanel.style.display = "flex";
       orderbtn.style.display = "block";
-      btnReset.style.display = "block";
+      btnReset.style.opacity = "1";
       orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
     })
 
@@ -470,7 +471,7 @@ script.
       if (totalAmount <= 0 && totalPrice <= 0) {
         //orderPanel.style.display = "none";
         orderbtn.style.display = "none";
-        btnReset.style.display = "none";
+        btnReset.style.opacity = "0";
       }
       else {
         orderbtn.innerHTML = totalAmount + " " + item + " for " + totalPrice + " Kč";
