@@ -21,6 +21,6 @@ custompage://67/Home
 ---DONE---|---NOT DONE---
 Home      |
 News      |
-          |Menu
+          |     Menu
   Contacts|
-          |Order
+  Order   |

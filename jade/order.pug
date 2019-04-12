@@ -193,13 +193,17 @@ html(lang='en')
         padding-left: 2vw;
     }
 
-    .btn-container span {
+    .btn-container a {
         display: flex;
+        justify-content: center;
+        width: 20vw;
         font-size: 1.4em;
         border: 0;
         background-color: var(--dark);
         color: var(--primary-col);
     }
+
+
 
     .vline {
         margin-top: 0%;
@@ -208,10 +212,6 @@ html(lang='en')
         background-color: var(--primary-col);
     }
 
-    #back {
-        margin-right: 5px;
-        width: 20vw;
-    }
     #submit {
         width: 80vw;
         background-color: transparent;
@@ -272,10 +272,10 @@ html(lang='en')
             
 
     .btn-container
-        a(href="home")
+        a(href="custompage://67/Home")
             span#back.material-icons arrow_back
         .vline
-        button#submit(type="submit" data-toggle="modal" data-target="#thanks") Finish order
+        button#submit(form="addressForm" type="submit" data-toggle="modal" data-target="#thanks") Finish order
 
 
     #thanks.modal

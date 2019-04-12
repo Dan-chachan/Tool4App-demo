@@ -1,54 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700&amp;amp;subset=latin-ext" rel="stylesheet" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   </head>
-   <style>:root { --accent-col: #316f07; --primary-col: #7DEC1F; --primary-dark: #56A315; --separator: #999999; --secondary-back: #ffffff; --primary-text: #ffffff; --secondary-back-text: #343342; --logo-back: #ffffff; --primary-back: #E2E0DE; --primary-back-text: #757575; --pad: 4px; --large-pad: 8px; --but-size: 8vw; --tile-ht: 7em; --intile-ht: calc(var(--tile-ht) - var(--pad)*4); --dark: #1c1c24; --darkish: #343342; font-family: "Open Sans";}body { background-color: var(--darkish); color: var(--primary-back-text); margin: 0; box-sizing: border-box; padding-bottom: 8vh;}*, *::before, *::after { font-family: "Open Sans", sans-serif;}.flex-container { display: flex; flex-direction: column; font-size: 1rem;}#contacts, #contact-us { margin: 5vw; padding: 5vw; background-color: var(--secondary-back); align-items: center;}.img { width: 40vw height: auto; background-size: contain; background-repeat: no-repeat; background-position: center;}#about-us { margin-top: 1em; justify-content: flex-start; max-width: 70vw;}#city { padding-left: 1.9em;}#city p { margin: 0px;}#address, #web, #phone { flex-direction: row; width: 100%;}#address p { margin-bottom: 0px;}#about-us span { width: 1em; margin-right: 0.3em;}#web a { color: var(--primary-col);}#contact-us { flex-direction: column; align-content: center; justify-content: center;}#contact-us p { margin-top: 2vh; font-weight: bold;}#contactform label { padding: 0px;}#contactform input { height: 1.8em;}#contactform input:focus, #contactform textarea:focus { border-bottom: 2px solid var(--primary-col);}#contactform input, textarea { width: calc(100% - 4vw * 2); background-color: transparent; border: 0px; margin: 1vw 4vw; border-bottom: 1px solid var(--darkish);}#contactform button { border: 0; background-color: var(--darkish); color: var(--primary-col); border-radius: 3px; margin-left: calc(50% - 20vw); margin-top: 1em; margin-bottom: 1em; font-size: 1.2em; width: 40vw; height: 1.8em; justify-content: center; display: flex;}.btn-container { display: flex; flex-direction: row; z-index: 999; width: 100vw; height: 3rem; position: fixed; bottom: 0; left: 0; background-color: var(--dark); justify-items: flex-start; align-items: center; padding-left: 2vw;}.btn-container span { display: flex; font-size: 1.4em; border: 0; background-color: var(--dark); color: var(--primary-col);}#thanks button { border-radius: 3px; border: 0px; background-color: var(--darkish); color: var(--primary-col);}#largebtn { padding: 0.5em;}#smallbtn { display: flex; justify-content: center; align-items: center; width: 2em; height: 2em;}#smallbtn span { font-size: 0.9em;}#gmap { width: 100%; height: 20vh;}#web, #phone {
-      margin-top: 0.4em;
-    }</style>
-   <body>
-<div id="contacts" class="flex-container">
-<div class="img" style="background-image: url('/Tool4App/Tool4AppPortal/api/document/get/?ID=66&amp;action=view'); display: none;"> </div>
-<img class="img" src="/Tool4App/Tool4AppPortal/api/document/get/?ID=66&amp;action=view" alt="" width="141" height="86" />
-<div id="about-us" class="flex-container">
-<div id="address" class="flex-container"><span class="material-icons">place</span>
-<p>Sady Pětatřicátníků 173/31</p>
-</div>
-<div id="city" class="flex-container">
-<p>Plzeň 301 00</p>
-</div>
-<div id="web" class="flex-container"><span class="material-icons">language</span> <a class="link" href="http://skeleton.cz">skeleton.cz</a></div>
-<div id="phone" class="flex-container"><span class="material-icons">phone</span>
-<p>377 477 731</p>
-</div>
-</div>
-<div id="gmap"> </div>
-</div>
-<div class="btn-container"><a href="custompage://67/Home"> <span class="material-icons">arrow_back</span> </a></div>
-<div id="contact-us" class="flex-container">
-<p>Contact us</p>
-<form id="contactform"><input id="name" type="text" placeholder="Name" /> <input id="email" required="" type="text" placeholder="Email" /> <textarea id="message" required="" placeholder="Your message"></textarea> <button id="send" type="submit" data-toggle="modal" data-target="#thanks"> <span class="material-icons">email</span> </button></form></div>
-<div id="thanks" class="modal">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
-<div class="modal-header">
-<h4 class="modal-title">Thank you</h4>
-<button id="smallbtn" type="button" data-dismiss="modal"> <span class="material-icons">close</span> </button></div>
-<div class="modal-body">
-<p>We will reply to your message as soon as we can.</p>
-</div>
-<div class="modal-footer"><button id="largebtn" type="button" data-dismiss="modal">Close</button></div>
-</div>
-</div>
-</div>
-</body>
-</html>
-<script>function initMap() { var skeleton = {lat: 49.7493334, lng: 13.3733772}; var map = new google.maps.Map( document.getElementById('gmap'), {zoom: 19, center: skeleton}); var marker = new google.maps.Marker({position: skeleton, map: map})}</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi5negu8eiT0dnFK-DbeTzuUTopwS8dfM&amp;callback=initMap"></script>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+			<link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700&amp;amp;subset=latin-ext" rel="stylesheet" />
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		</head>
+		<style>:root { --accent-col: #316f07; --primary-col: #7DEC1F; --primary-dark: #56A315; --separator: #999999; --secondary-back: #ffffff; --primary-text: #ffffff; --secondary-back-text: #343342; --logo-back: #ffffff; --primary-back: #E2E0DE; --primary-back-text: #757575; --pad: 4px; --large-pad: 8px; --but-size: 8vw; --tile-ht: 7em; --intile-ht: calc(var(--tile-ht) - var(--pad)*4); --dark: #1c1c24; --darkish: #343342; font-family: "Open Sans";}body { background-color: var(--darkish); color: var(--primary-back-text); margin: 0; box-sizing: border-box; padding-bottom: 8vh;}*, *::before, *::after { font-family: "Open Sans", sans-serif;}.flex-container { display: flex; flex-direction: column; font-size: 1rem;}#contacts, #contact-us { margin: 5vw; padding: 5vw; background-color: var(--secondary-back); align-items: center;}.img { width: 30vw; height: 3rem; background-size: contain; background-repeat: no-repeat; background-position: center;}#about-us { margin-top: 1em; justify-content: flex-start; max-width: 70vw;}#city { padding-left: 1.9em;}#city p { margin: 0px;}#address, #web, #phone { flex-direction: row; width: 100%;}#web, #phone { margin-top: 0.4em;}#address p { margin-bottom: 0px;}#about-us span { width: 1em; margin-right: 0.3em;}#web a { color: var(--primary-col);}#contact-us { flex-direction: column; align-content: center; justify-content: center;}#contact-us p { margin-top: 2vh; font-weight: bold;}#contactform label { padding: 0px;}#contactform input { height: 1.8em;}#contactform input:focus, #contactform textarea:focus { border-bottom: 2px solid var(--primary-col);}#contactform input, textarea { width: calc(100% - 4vw * 2); background-color: transparent; border: 0px; margin: 1vw 4vw; border-bottom: 1px solid var(--darkish);}#contactform button { border: 0; background-color: var(--darkish); color: var(--primary-col); border-radius: 3px; margin-left: calc(50% - 20vw); margin-top: 1em; margin-bottom: 1em; font-size: 1.2em; width: 40vw; height: 1.8em; justify-content: center; display: flex;}.btn-container { display: flex; flex-direction: row; z-index: 999; width: 100vw; height: 3rem; position: fixed; bottom: 0; left: 0; background-color: var(--dark); justify-items: flex-start; align-items: center; padding-left: 2vw;}.btn-container span { display: flex; font-size: 1.4em; border: 0; background-color: var(--dark); color: var(--primary-col);}#thanks button { border-radius: 3px; border: 0px; background-color: var(--darkish); color: var(--primary-col);}#largebtn { padding: 0.5em;}#smallbtn { display: flex; justify-content: center; align-items: center; width: 2em; height: 2em;}#smallbtn span { font-size: 0.9em;}#gmap { width: 100%; height: 20vh;}#alert { display: none; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; height: 4rem; background-color: var(--dark); color: var(--primary-col); padding: 1rem;}#alert p { margin: 0px;}#alert span { cursor: pointer;}</style>
+		<body>
+			<div id="alert">
+				<p id="alert-text">Thank you! We will reply as soon as we can.</p>
+				<span class="material-icons" onclick="this.parentElement.style.display='none';">close</span>
+			</div>
+			<div class="flex-container" id="contacts">
+				<div class="img" style="background-image: url('https://test.skeleton.cz/Tool4App/Tool4AppPortal/api/document/get/?ID=61&amp;action=view')"></div>
+				<div class="flex-container" id="about-us">
+					<div class="flex-container" id="address">
+						<span class="material-icons">place</span>
+						<p>Sady Pětatřicátníků 173/31</p>
+					</div>
+					<div class="flex-container" id="city">
+						<p>Plzeň 301 00</p>
+					</div>
+					<div class="flex-container" id="web">
+						<span class="material-icons">language</span>
+						<a class="link" href="http://skeleton.cz">skeleton.cz</a>
+					</div>
+					<div class="flex-container" id="phone">
+						<span class="material-icons">phone</span>
+						<p>377 477 731</p>
+					</div>
+				</div>
+				<div id="gmap"></div>
+			</div>
+			<div class="btn-container">
+				<a href="custompage://67/Home">
+					<span class="material-icons">arrow_back</span>
+				</a>
+			</div>
+			<div class="flex-container" id="contact-us">
+				<p>Contact us</p>
+				<form id="contactform" action="#" method="get" onsubmit="return validate()">
+					<input type="text" placeholder="Name" id="name" />
+					<input type="text" placeholder="Email" id="email" required />
+					<textarea id="message" placeholder="Your message" required></textarea>
+					<button id="send">
+						<span class="material-icons">email</span>
+					</button>
+				</form>
+			</div>
+		</body>
+	</html>
+	<script>function validate() { var mail = document.getElementById("email").value; var text = document.getElementById("message").value; if (mail.length != 0 && text.length != 0) { document.getElementById("alert").style.display = "flex"; return true; } else { return false; }}function initMap() { var skeleton = {lat: 49.7493334, lng: 13.3733772}; var map = new google.maps.Map( document.getElementById('gmap'), {zoom: 19, center: skeleton}); var marker = new google.maps.Marker({position: skeleton, map: map})}</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi5negu8eiT0dnFK-DbeTzuUTopwS8dfM&amp;callback=initMap"></script>

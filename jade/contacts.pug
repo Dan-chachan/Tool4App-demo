@@ -266,22 +266,18 @@ html(lang='en')
 
     .flex-container#contact-us
       p Contact us
-      form#contactform(action="#" method="get")
+      form#contactform(action="#" method="get" onsubmit="return validate()")
         input(type="text" placeholder="Name" id="name")
 
         input(type="text" placeholder="Email" id="email" required)
         
         textarea#message(placeholder="Your message" required)
 
-        button#send(onclick="showAlert()")
+        button#send
           span.material-icons email
 
 
 script.
-
-  function showAlert() {
-    document.getElementById("alert").style.display = "flex";
-  }
 
   function validate() {
     var mail = document.getElementById("email").value;
@@ -290,10 +286,10 @@ script.
 
     if (mail.length != 0 && text.length != 0) {
       document.getElementById("alert").style.display = "flex";
+      return true;
     }
 
     else {
-      console.log("nope")
       return false;
     }
   }

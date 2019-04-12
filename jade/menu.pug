@@ -61,7 +61,7 @@ html(lang='en')
     } 
 
     .flex-container {
-      /* display: flex; */
+      display: flex;
     }
 
     .btn-container {
@@ -71,7 +71,7 @@ html(lang='en')
         z-index: 999;
 
         width: 100vw;
-        height: 2rem;
+        height: 3rem;
         
         position: fixed;
         bottom: 0;
@@ -411,13 +411,14 @@ html(lang='en')
         .hline
 
   .btn-container#foodbtn-container
-    button#foodback(href='menu.html')
-      span.material-icons arrow_back
+    a(href="custompage://67/Home")      
+      button#foodback
+        span.material-icons arrow_back
     .vline
-    button#foodsubmit(href="summary.html")
+    button#foodsubmit
       | Order
     .vline
-    button#foodreset(href='menu.html')
+    button#foodreset
       span.material-icons  restore
 
 script.
@@ -491,7 +492,10 @@ script.
       amountElem.innerHTML = "0";
     })
     foods = [];
+    var header = document.createElement("h4");
+    header.innerHTML = "Your order"
     document.getElementById("sum-container").innerHTML = "";
+    document.getElementById("sum-container").appendChild(header);
     switchView(true);
   })
 
@@ -571,7 +575,6 @@ script.
 
     node = document.getElementById("prices-container");
     node.appendChild(container);
-
   }
 
   function switchView(home=false) {
@@ -583,7 +586,6 @@ script.
       summary.classList.remove("show");
       foodpick.classList.add("show");
     }
-
   }
 
   function getPrice(elem) {
